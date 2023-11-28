@@ -46,5 +46,7 @@ func initRoutes(e *echo.Echo, app *application.App, h *server.Handler) {
 
 	v1 := e.Group("/v1")
 
-	v1.GET("/sample", h.GetSample) // TODO: delete later
+	// Auth
+	v1.POST("/register", h.Register)
+	v1.POST("/login", h.Login)
 }
