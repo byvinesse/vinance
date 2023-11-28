@@ -9,6 +9,7 @@ import (
 
 func Ok[T any](c echo.Context, data T) error {
 	return c.JSON(http.StatusOK, entity.OkResponse[T]{
+		Code:   200,
 		Status: "OK",
 		Data:   data,
 	})

@@ -1,9 +1,10 @@
 package errors
 
 type BadRequestError struct {
-	ErrorCode     string
+	Code          int
+	Status        string
 	Message       string
-	InternalError string
+	InternalError error
 }
 
 func (e BadRequestError) Error() string {
@@ -11,7 +12,8 @@ func (e BadRequestError) Error() string {
 }
 
 type ValidationError struct {
-	ErrorCode     string
+	Code          int
+	Status        string
 	Message       string
 	InternalError error
 }
@@ -21,7 +23,8 @@ func (e ValidationError) Error() string {
 }
 
 type ServerError struct {
-	ErrorCode     string
+	Code          int
+	Status        string
 	Message       string
 	InternalError error
 }
@@ -31,7 +34,8 @@ func (e ServerError) Error() string {
 }
 
 type UnauthorizedError struct {
-	ErrorCode     string
+	Code          int
+	Status        string
 	Message       string
 	InternalError error
 }
@@ -41,7 +45,8 @@ func (e UnauthorizedError) Error() string {
 }
 
 type ForbiddenError struct {
-	ErrorCode     string
+	Code          int
+	Status        string
 	Message       string
 	InternalError error
 }
@@ -51,7 +56,8 @@ func (e ForbiddenError) Error() string {
 }
 
 type NotFoundError struct {
-	ErrorCode     string
+	Code          int
+	Status        string
 	Message       string
 	InternalError error
 }
@@ -61,7 +67,8 @@ func (e NotFoundError) Error() string {
 }
 
 type DuplicateError struct {
-	ErrorCode     string
+	Code          int
+	Status        string
 	Message       string
 	InternalError error
 }

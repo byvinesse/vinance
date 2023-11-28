@@ -1,6 +1,8 @@
 package server
 
 import (
+	"fmt"
+
 	"github.com/labstack/echo/v4"
 	"github.com/vincentkdeli/vinance-backend/model"
 	"github.com/vincentkdeli/vinance-backend/pkg/errors"
@@ -23,7 +25,7 @@ func (h *Handler) Login(c echo.Context) error {
 
 	result, err := h.app.AuthService.Login(ctx, &req)
 	if err != nil {
-		return err
+		return errors.ErrInternalServerError(err, fmt.Sprintf("failed to #login member for request: %s", req.Email))
 	}
 
 	return response.Ok(c, result)

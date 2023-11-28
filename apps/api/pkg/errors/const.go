@@ -4,35 +4,40 @@ import "fmt"
 
 func ErrMissingField(field string) *ValidationError {
 	return &ValidationError{
-		ErrorCode: "MISSING_FIELD",
-		Message:   fmt.Sprintf("%s field cannot be empty", field),
+		Code:    400,
+		Status:  "MISSING_FIELD",
+		Message: fmt.Sprintf("%s field cannot be empty", field),
 	}
 }
 
 func ErrMissingPathParam(path string) *ValidationError {
 	return &ValidationError{
-		ErrorCode: "MISSING_PARAMETER",
-		Message:   fmt.Sprintf("%s path parameter cannot be empty", path),
+		Code:    400,
+		Status:  "MISSING_PARAMETER",
+		Message: fmt.Sprintf("%s path parameter cannot be empty", path),
 	}
 }
 
 func ErrInvalidFormat(field, format string) *ValidationError {
 	return &ValidationError{
-		ErrorCode: "INVALID_FORMAT",
-		Message:   fmt.Sprintf("%s field value is not a valid %s", field, format),
+		Code:    400,
+		Status:  "INVALID_FORMAT",
+		Message: fmt.Sprintf("%s field value is not a valid %s", field, format),
 	}
 }
 
 func ErrInvalidValue(field string) *ValidationError {
 	return &ValidationError{
-		ErrorCode: "INVALID_VALUE",
-		Message:   fmt.Sprintf("%s field value is invalid", field),
+		Code:    400,
+		Status:  "INVALID_VALUE",
+		Message: fmt.Sprintf("%s field value is invalid", field),
 	}
 }
 
 func ErrUnauthorized(err error, message string) *UnauthorizedError {
 	return &UnauthorizedError{
-		ErrorCode:     "UNAUTHORIZED",
+		Code:          401,
+		Status:        "UNAUTHORIZED",
 		Message:       message,
 		InternalError: err,
 	}
@@ -40,7 +45,8 @@ func ErrUnauthorized(err error, message string) *UnauthorizedError {
 
 func ErrForbidden(err error, message string) *ForbiddenError {
 	return &ForbiddenError{
-		ErrorCode:     "FORBIDDEN",
+		Code:          403,
+		Status:        "FORBIDDEN",
 		Message:       message,
 		InternalError: err,
 	}
@@ -48,7 +54,8 @@ func ErrForbidden(err error, message string) *ForbiddenError {
 
 func ErrParseFailed(err error) *ValidationError {
 	return &ValidationError{
-		ErrorCode:     "PARSE_ERROR",
+		Code:          400,
+		Status:        "PARSE_ERROR",
 		Message:       "Failed to parse request body",
 		InternalError: err,
 	}
@@ -56,7 +63,8 @@ func ErrParseFailed(err error) *ValidationError {
 
 func ErrInternalServerError(err error, message string) *ServerError {
 	return &ServerError{
-		ErrorCode:     "INTERNAL_SERVER_ERROR",
+		Code:          500,
+		Status:        "INTERNAL_SERVER_ERROR",
 		Message:       message,
 		InternalError: err,
 	}
@@ -64,7 +72,8 @@ func ErrInternalServerError(err error, message string) *ServerError {
 
 func ErrDataNotFoundError(err error, message string) *NotFoundError {
 	return &NotFoundError{
-		ErrorCode:     "DATA_NOT_FOUND",
+		Code:          404,
+		Status:        "DATA_NOT_FOUND",
 		Message:       message,
 		InternalError: err,
 	}
@@ -72,7 +81,8 @@ func ErrDataNotFoundError(err error, message string) *NotFoundError {
 
 func DatabaseError(err error, message string) *ServerError {
 	return &ServerError{
-		ErrorCode:     "DATABASE_ERROR",
+		Code:          500,
+		Status:        "DATABASE_ERROR",
 		Message:       message,
 		InternalError: err,
 	}
@@ -80,7 +90,8 @@ func DatabaseError(err error, message string) *ServerError {
 
 func ErrDuplicateError(err error, message string) *DuplicateError {
 	return &DuplicateError{
-		ErrorCode:     "DUPLICATE_ERROR",
+		Code:          409,
+		Status:        "DUPLICATE_ERROR",
 		Message:       message,
 		InternalError: err,
 	}

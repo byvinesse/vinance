@@ -1,6 +1,8 @@
 package server
 
 import (
+	"fmt"
+
 	"github.com/labstack/echo/v4"
 	"github.com/vincentkdeli/vinance-backend/model"
 	"github.com/vincentkdeli/vinance-backend/pkg/errors"
@@ -25,7 +27,7 @@ func (h *Handler) Register(c echo.Context) error {
 
 	result, err := h.app.AuthService.Register(ctx, &req)
 	if err != nil {
-		return errors.ErrInternalServerError(err, "failed to register new member")
+		return errors.ErrInternalServerError(err, fmt.Sprintf("failed to #register new member for request: %s", req.Email))
 	}
 
 	return response.Ok(c, result)

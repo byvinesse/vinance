@@ -1,22 +1,23 @@
 package errors
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
-	"github.com/labstack/gommon/log"
 	"github.com/vincentkdeli/vinance-backend/entity"
+	"github.com/vincentkdeli/vinance-backend/pkg/log"
 )
 
 func Middleware(err error, c echo.Context) {
 	// 400 Bad Request Error
 	var badRequestError *BadRequestError
 	if As(err, &badRequestError) {
-		log.Printf("error=%v app_id=%s member_email=%s\n", badRequestError.InternalError, c.Get("app_id"), c.Get("member_email"))
+		log.Error().Err(err).Caller().Msg(fmt.Sprintf("app_id=%s | member_email=%s | error=%v", c.Get("app_id"), c.Get("member_email"), badRequestError.InternalError))
 		_ = c.JSON(http.StatusBadRequest, entity.ErrResponse{
-			Status:    "BAD_REQUEST",
-			ErrorCode: badRequestError.ErrorCode,
-			Message:   badRequestError.Message,
+			Code:    badRequestError.Code,
+			Status:  badRequestError.Status,
+			Message: badRequestError.Message,
 		})
 		return
 	}
@@ -24,11 +25,11 @@ func Middleware(err error, c echo.Context) {
 	// 400 Client Error
 	var validationError *ValidationError
 	if As(err, &validationError) {
-		log.Printf("error=%v app_id=%s member_email=%s\n", validationError.InternalError, c.Get("app_id"), c.Get("member_email"))
+		log.Error().Err(err).Caller().Msg(fmt.Sprintf("app_id=%s | member_email=%s | error=%v", c.Get("app_id"), c.Get("member_email"), validationError.InternalError))
 		_ = c.JSON(http.StatusBadRequest, entity.ErrResponse{
-			Status:    "VALIDATION_ERROR",
-			ErrorCode: validationError.ErrorCode,
-			Message:   validationError.Message,
+			Code:    validationError.Code,
+			Status:  validationError.Status,
+			Message: validationError.Message,
 		})
 		return
 	}
@@ -36,11 +37,11 @@ func Middleware(err error, c echo.Context) {
 	// 401 Authorization Error
 	var unauthorizedError *UnauthorizedError
 	if As(err, &unauthorizedError) {
-		log.Printf("error=%v app_id=%s member_email=%s\n", unauthorizedError.InternalError, c.Get("app_id"), c.Get("member_email"))
+		log.Error().Err(err).Caller().Msg(fmt.Sprintf("app_id=%s | member_email=%s | error=%v", c.Get("app_id"), c.Get("member_email"), unauthorizedError.InternalError))
 		_ = c.JSON(http.StatusUnauthorized, entity.ErrResponse{
-			Status:    "UNAUTHORIZED",
-			ErrorCode: unauthorizedError.ErrorCode,
-			Message:   unauthorizedError.Message,
+			Code:    unauthorizedError.Code,
+			Status:  unauthorizedError.Status,
+			Message: unauthorizedError.Message,
 		})
 		return
 	}
@@ -48,11 +49,11 @@ func Middleware(err error, c echo.Context) {
 	// 403 Forbidden Error
 	var forbiddenError *ForbiddenError
 	if As(err, &forbiddenError) {
-		log.Printf("error=%v app_id=%s member_email=%s\n", forbiddenError.InternalError, c.Get("app_id"), c.Get("member_email"))
+		log.Error().Err(err).Caller().Msg(fmt.Sprintf("app_id=%s | member_email=%s | error=%v", c.Get("app_id"), c.Get("member_email"), forbiddenError.InternalError))
 		_ = c.JSON(http.StatusForbidden, entity.ErrResponse{
-			Status:    "FORBIDDEN",
-			ErrorCode: forbiddenError.ErrorCode,
-			Message:   forbiddenError.Message,
+			Code:    forbiddenError.Code,
+			Status:  forbiddenError.Status,
+			Message: forbiddenError.Message,
 		})
 		return
 	}
@@ -60,11 +61,11 @@ func Middleware(err error, c echo.Context) {
 	// 404 Not Found Error
 	var notFoundError *NotFoundError
 	if As(err, &notFoundError) {
-		log.Printf("error=%v app_id=%s member_email=%s\n", notFoundError.InternalError, c.Get("app_id"), c.Get("member_email"))
+		log.Error().Err(err).Caller().Msg(fmt.Sprintf("app_id=%s | member_email=%s | error=%v", c.Get("app_id"), c.Get("member_email"), notFoundError.InternalError))
 		_ = c.JSON(http.StatusNotFound, entity.ErrResponse{
-			Status:    "NOT_FOUND",
-			ErrorCode: notFoundError.ErrorCode,
-			Message:   notFoundError.Message,
+			Code:    notFoundError.Code,
+			Status:  notFoundError.Status,
+			Message: notFoundError.Message,
 		})
 		return
 	}
@@ -72,11 +73,11 @@ func Middleware(err error, c echo.Context) {
 	// 409 Duplicate Error
 	var duplicateError *DuplicateError
 	if As(err, &duplicateError) {
-		log.Printf("error=%v app_id=%s member_email=%s\n", notFoundError.InternalError, c.Get("app_id"), c.Get("member_email"))
+		log.Error().Err(err).Caller().Msg(fmt.Sprintf("app_id=%s | member_email=%s | error=%v", c.Get("app_id"), c.Get("member_email"), duplicateError.InternalError))
 		_ = c.JSON(http.StatusConflict, entity.ErrResponse{
-			Status:    "DATA_ALREADY_EXISTS",
-			ErrorCode: duplicateError.ErrorCode,
-			Message:   duplicateError.Message,
+			Code:    duplicateError.Code,
+			Status:  duplicateError.Status,
+			Message: duplicateError.Message,
 		})
 		return
 	}
@@ -84,20 +85,20 @@ func Middleware(err error, c echo.Context) {
 	// 500 Internal Server Error
 	var serverError *ServerError
 	if As(err, &serverError) {
-		log.Printf("error=%v app_id=%s member_email=%s\n", serverError.InternalError, c.Get("app_id"), c.Get("member_email"))
+		log.Error().Err(err).Caller().Msg(fmt.Sprintf("app_id=%s | member_email=%s | error=%v", c.Get("app_id"), c.Get("member_email"), serverError.InternalError))
 		_ = c.JSON(http.StatusInternalServerError, entity.ErrResponse{
-			Status:    "INTERNAL_SERVER_ERROR",
-			ErrorCode: "INTERNAL_SERVER_ERROR",
-			Message:   "Sorry, something went wrong",
+			Code:    serverError.Code,
+			Status:  serverError.Status,
+			Message: "Sorry, something went wrong.",
 		})
 		return
 	}
 
 	// Unknown Error
-	log.Printf("error=%v app_id=%s member_email=%s", err, c.Get("app_id"), c.Get("member_email"))
-	_ = c.JSON(http.StatusInternalServerError, entity.ErrResponse{
-		Status:    "INTERNAL_SERVER_ERROR",
-		ErrorCode: "UNKNOWN_ERROR",
-		Message:   "Sorry, something went wrong",
+	log.Error().Err(err).Caller().Msg(fmt.Sprintf("app_id=%s | member_email=%s | error=%v", c.Get("app_id"), c.Get("member_email"), err))
+	_ = c.JSON(http.StatusBadGateway, entity.ErrResponse{
+		Code:    502,
+		Status:  "INTERNAL_SERVER_ERROR",
+		Message: "Sorry, something went wrong",
 	})
 }
