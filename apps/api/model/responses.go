@@ -1,5 +1,7 @@
 package model
 
+import "time"
+
 type RegisterResponse struct {
 	Email       string `json:"email"`
 	PhoneNumber string `json:"phone_number"`
@@ -7,7 +9,6 @@ type RegisterResponse struct {
 }
 
 type LoginResponse struct {
-	Email       string `json:"email"`
-	PhoneNumber string `json:"phone_number"`
-	IsMember    bool   `json:"is_member"`
+	AccessToken          string    `json:"access_token"`
+	AccessTokenExpiresAt time.Time `json:"expires_at"`
 }

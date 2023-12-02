@@ -2,6 +2,8 @@ package entity
 
 import (
 	"time"
+
+	"github.com/golang-jwt/jwt"
 )
 
 type Auth struct {
@@ -12,4 +14,15 @@ type Auth struct {
 	IsMember    bool      `json:"is_member" bson:"is_member"`
 	CreatedAt   time.Time `json:"created_at" bson:"created_at"`
 	UpdatedAt   time.Time `json:"updated_at" bson:"updated_at"`
+}
+
+type AuthToken struct {
+	AccessToken          string    `json:"access_token"`
+	AccessTokenExpiresAt time.Time `json:"expires_at"`
+}
+
+type TokenClaims struct {
+	jwt.StandardClaims
+	UserID    string `json:"user_id"`
+	UserEmail string `json:"user_email"`
 }

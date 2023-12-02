@@ -9,6 +9,9 @@ import (
 	"github.com/vincentkdeli/vinance-backend/cmd/application"
 	"github.com/vincentkdeli/vinance-backend/handler/server"
 	"github.com/vincentkdeli/vinance-backend/pkg/errors"
+	"github.com/vincentkdeli/vinance-backend/pkg/response"
+
+	appmiddleware "github.com/vincentkdeli/vinance-backend/pkg/middleware"
 )
 
 func Run(app *application.App) {
@@ -49,4 +52,16 @@ func initRoutes(e *echo.Echo, app *application.App, h *server.Handler) {
 	// Auth
 	v1.POST("/register", h.Register)
 	v1.POST("/login", h.Login)
+
+	withAuth := appmiddleware.Authentication(
+		app.Authenticator,
+		appmiddleware.AuthConfig{
+			AllowAuthorizationHeader: true,
+		},
+	)
+
+	// TODO: delete
+	v1.GET("/protected", func(c echo.Context) error {
+		return response.Ok(c, true)
+	}, withAuth)
 }

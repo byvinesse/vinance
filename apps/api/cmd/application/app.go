@@ -5,6 +5,7 @@ import (
 
 	"github.com/vincentkdeli/vinance-backend/config"
 	"github.com/vincentkdeli/vinance-backend/entity"
+	auth "github.com/vincentkdeli/vinance-backend/pkg/authenticator"
 	"github.com/vincentkdeli/vinance-backend/pkg/service"
 	"github.com/vincentkdeli/vinance-backend/pkg/validator"
 	"github.com/vincentkdeli/vinance-backend/repository/db"
@@ -14,10 +15,15 @@ import (
 
 type App struct {
 	AuthService service.IAuthService
+
+	Authenticator *auth.Authenticator
 }
 
 func NewApp() *App {
 	ctx := context.Background()
+
+	authConfig := config.LoadAuth()
+	authenticator := auth.NewAuthenticator(authConfig)
 
 	// Init Database
 	database := connectDatabase(ctx)
@@ -26,12 +32,14 @@ func NewApp() *App {
 	authRepo := db.NewAuth(database)
 
 	// Init service
-	authService := service.NewAuthService(authRepo)
+	authService := service.NewAuthService(authRepo, *authenticator)
 
 	validator.Init()
 
 	return &App{
 		AuthService: authService,
+
+		Authenticator: authenticator,
 	}
 }
 

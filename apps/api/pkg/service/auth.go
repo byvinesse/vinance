@@ -7,18 +7,21 @@ import (
 
 	"github.com/vincentkdeli/vinance-backend/entity"
 	"github.com/vincentkdeli/vinance-backend/model"
+	auth "github.com/vincentkdeli/vinance-backend/pkg/authenticator"
 	"github.com/vincentkdeli/vinance-backend/pkg/errors"
 	"github.com/vincentkdeli/vinance-backend/pkg/utils"
 	"github.com/vincentkdeli/vinance-backend/repository"
 )
 
 type AuthService struct {
-	authRepo repository.Auth
+	authRepo      repository.Auth
+	authenticator auth.Authenticator
 }
 
-func NewAuthService(authRepo repository.Auth) *AuthService {
+func NewAuthService(authRepo repository.Auth, authenticator auth.Authenticator) *AuthService {
 	return &AuthService{
-		authRepo: authRepo,
+		authRepo:      authRepo,
+		authenticator: authenticator,
 	}
 }
 
@@ -63,13 +66,17 @@ func (s *AuthService) Login(ctx context.Context, request *model.LoginRequest) (*
 		return nil, errors.ErrUnauthorized(fmt.Errorf("INCORRECT_PASSWORD"), "sorry, incorrect password")
 	}
 
-	return toLoginResponse(data), nil
+	accessToken, accessTokenExpiresAt, err := s.authenticator.GenerateJwtToken(*data)
+	if err != nil {
+		return nil, err
+	}
+
+	return toLoginResponse(accessToken, accessTokenExpiresAt), nil
 }
 
-func toLoginResponse(auth *entity.Auth) *model.LoginResponse {
+func toLoginResponse(accessToken string, accessTokenExpiresAt time.Time) *model.LoginResponse {
 	return &model.LoginResponse{
-		Email:       auth.Email,
-		PhoneNumber: auth.PhoneNumber,
-		IsMember:    auth.IsMember,
+		AccessToken:          accessToken,
+		AccessTokenExpiresAt: accessTokenExpiresAt,
 	}
 }
