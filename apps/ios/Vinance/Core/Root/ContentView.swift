@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  vinance
+//  Vinance
 //
 //  Created by Vincent Deli on 03/12/23.
 //
@@ -9,13 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        LoginView()
+            .tabItem() {
+                Image(systemName: "person.crop.circle.badge.checkmark")
+                Text("Login")
+            }
     }
 }
 
