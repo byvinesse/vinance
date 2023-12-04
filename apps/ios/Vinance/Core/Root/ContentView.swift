@@ -8,12 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
+    
     var body: some View {
-        LoginView()
-            .tabItem() {
-                Image(systemName: "person.crop.circle.badge.checkmark")
-                Text("Login")
+        Group {
+            if viewModel.userSession != nil {
+                ProfileView()
+            } else {
+                LoginView()
+                    .tabItem() {
+                        Image(systemName: "person.crop.circle.badge.checkmark")
+                        Text("Login")
+                    }
             }
+        }
     }
 }
 
