@@ -18,14 +18,14 @@ struct InputView: View {
             Text(title)
                 .foregroundColor(Color(.darkGray))
                 .fontWeight(.semibold)
-                .font(.footnote)
+                .font(.system(size: 20))
             
             if isSecureField {
                 SecureField(placeholder, text: $text)
-                    .font(.system(size: 14))
+                    .font(.system(size: 20))
             } else {
                 TextField(placeholder, text: $text)
-                    .font(.system(size: 14))
+                    .font(.system(size: 20))
             }
             
             Divider()
@@ -35,6 +35,6 @@ struct InputView: View {
 
 struct InputView_Previews: PreviewProvider {
     static var previews: some View {
-        InputView(text: .constant(""), title: "Email Address", placeholder: "name@example.com")
+        InputView(text: .constant(""), title: "Email", placeholder: "name@example.com")
     }
 }
