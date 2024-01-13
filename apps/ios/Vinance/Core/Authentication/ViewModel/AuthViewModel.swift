@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 class AuthViewModel: ObservableObject {
     @Published var userSession: String?
     @Published var currentUser: User?
@@ -22,26 +23,23 @@ class AuthViewModel: ObservableObject {
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.httpBody = try! JSONEncoder().encode(LoginRequest(email: email, password: password))
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let task = URLSession.shared.dataTask(with: request) { data, _, error in
-            guard let data = data, error == nil else {
-                return
-            }
-
-            do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-
-                let response = try decoder.decode(LoginResponse.self, from: data)
-                print("access_token: \(response.data.accessToken)")
-                print("expires_at: \(response.data.expiresAt)")
-            } catch {
-                print(error)
-            }
+        do {
+            let requestBody = try JSONEncoder().encode(LoginRequest(email: email, password: password))
+            request.httpBody = requestBody
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            let (data, _) = try await URLSession.shared.data(for: request)
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            let response = try decoder.decode(LoginResponse.self, from: data)
+            
+            self.userSession = response.data.accessToken
+        } catch {
+            print(error)
         }
-        task.resume()
     }
     
     func register(withEmail email: String, password: String, username: String) async throws {
