@@ -21,8 +21,6 @@ func (h *Handler) Register(c echo.Context) error {
 		return errors.ErrMissingField("email")
 	} else if req.Password == "" {
 		return errors.ErrMissingField("password")
-	} else if req.PhoneNumber == "" {
-		return errors.ErrMissingField("phone_number")
 	}
 
 	result, err := h.app.AuthService.Register(ctx, &req)

@@ -32,12 +32,11 @@ func (s *AuthService) Register(ctx context.Context, request *model.RegisterReque
 	}
 
 	payload := entity.Auth{
-		Email:       request.Email,
-		Password:    hashedPassword,
-		PhoneNumber: request.PhoneNumber,
-		IsMember:    false,
-		CreatedAt:   time.Now(),
-		UpdatedAt:   time.Now(),
+		Email:     request.Email,
+		Password:  hashedPassword,
+		IsMember:  false,
+		CreatedAt: time.Now(),
+		UpdatedAt: time.Now(),
 	}
 
 	res, err := s.authRepo.InsertOne(ctx, &payload)
@@ -50,9 +49,8 @@ func (s *AuthService) Register(ctx context.Context, request *model.RegisterReque
 
 func toRegisterResponse(auth *entity.Auth) *model.RegisterResponse {
 	return &model.RegisterResponse{
-		Email:       auth.Email,
-		PhoneNumber: auth.PhoneNumber,
-		IsMember:    auth.IsMember,
+		Email:    auth.Email,
+		IsMember: auth.IsMember,
 	}
 }
 

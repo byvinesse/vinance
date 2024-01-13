@@ -3,9 +3,8 @@ package model
 import "time"
 
 type RegisterResponse struct {
-	Email       string `json:"email"`
-	PhoneNumber string `json:"phone_number"`
-	IsMember    bool   `json:"is_member"`
+	Email    string `json:"email"`
+	IsMember bool   `json:"is_member"`
 }
 
 type LoginResponse struct {
