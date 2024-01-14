@@ -12,6 +12,7 @@ struct RegistrationView: View {
     @State private var username = ""
     @State private var password = ""
     @State private var confirmPassword = ""
+    @State private var registrationSuccess = false
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var viewModel: AuthViewModel
     
@@ -21,19 +22,29 @@ struct RegistrationView: View {
             Image("vinance-logo-bgless")
                 .resizable()
                 .scaledToFill()
-                .frame(width: 100, height: 120)
-                .padding(.vertical, 32)
+                .frame(width: 344, height: 275)
+            
+            // hero text
+            VStack(alignment: .leading) {
+                Text("Hello")
+                    .font(.system(size: 48))
+                    .fontWeight(.bold)
+                    .foregroundColor(Color(hex: 0x393E46))
+                    
+                Text("Begin your journey here")
+                    .font(.system(size: 24))
+                    .fontWeight(.bold)
+                    .foregroundColor(Color(hex: 0x929AAB))
+            }
+            .padding(.top, -32)
+            .padding(.bottom, 32)
             
             // form fields
             VStack(spacing: 24) {
                 InputView(text: $email,
-                          title: "Email Address",
+                          title: "Email",
                           placeholder: "name@example.com")
                 .autocapitalization(.none)
-                
-                InputView(text: $username,
-                          title: "Username",
-                          placeholder: "Enter your username")
                 
                 InputView(text: $password,
                           title: "Password",
@@ -45,26 +56,35 @@ struct RegistrationView: View {
                           placeholder: "Confirm your password",
                           isSecureField: true)
                 
+                // register button
                 Button {
                     Task {
-                        try await viewModel.register(
-                            withEmail: email,
-                            password: password,
-                            username: username
-                        )
+                        do {
+                            let success = try await viewModel.register(
+                                withEmail: email,
+                                password: password,
+                                confirmPassword: confirmPassword
+                            )
+                            
+                            registrationSuccess = success
+                        } catch {
+                            print("Error: Registration failed.")
+                        }
                     }
                 } label: {
                     HStack {
-                        Text("SIGN UP")
+                        Text("Register")
                             .fontWeight(.semibold)
-                        Image(systemName: "arrow.right")
                     }
                     .foregroundColor(.white)
                     .frame(width: UIScreen.main.bounds.width - 32, height: 48)
                 }
-                .background(Color(.systemBlue))
+                .background(Color(.systemPurple))
                 .cornerRadius(10)
                 .padding(.top, 24)
+                .fullScreenCover(isPresented: $registrationSuccess) {
+                    LoginView()
+                }
                 
                 Spacer()
                 
@@ -72,11 +92,15 @@ struct RegistrationView: View {
                     dismiss()
                 } label: {
                     HStack(spacing: 2) {
-                        Text("Already have an account?")
+                        Text("Have an account?")
+                            .foregroundColor(Color(.systemGray))
+                            .padding(.trailing, 4)
                         Text("Sign in")
                             .fontWeight(.bold)
+                            .foregroundColor(Color(.systemPurple))
+                            .padding(.leading, 4)
                     }
-                    .font(.system(size: 14))
+                    .font(.system(size: 20))
                 }
             }
             .padding(.horizontal)
