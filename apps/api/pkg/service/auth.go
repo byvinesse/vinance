@@ -25,10 +25,10 @@ func NewAuthService(authRepo repository.Auth, authenticator auth.Authenticator) 
 	}
 }
 
-func (s *AuthService) Register(ctx context.Context, request *model.RegisterRequest) (*model.RegisterResponse, error) {
+func (s *AuthService) Register(ctx context.Context, request *model.RegisterRequest) (bool, error) {
 	hashedPassword, err := utils.HashPassword(request.Password)
 	if err != nil {
-		return nil, err
+		return false, err
 	}
 
 	payload := entity.Auth{
@@ -41,17 +41,10 @@ func (s *AuthService) Register(ctx context.Context, request *model.RegisterReque
 
 	res, err := s.authRepo.InsertOne(ctx, &payload)
 	if err != nil {
-		return nil, err
+		return false, err
 	}
 
-	return toRegisterResponse(res), nil
-}
-
-func toRegisterResponse(auth *entity.Auth) *model.RegisterResponse {
-	return &model.RegisterResponse{
-		Email:    auth.Email,
-		IsMember: auth.IsMember,
-	}
+	return res != nil, nil
 }
 
 func (s *AuthService) Login(ctx context.Context, request *model.LoginRequest) (*model.LoginResponse, error) {

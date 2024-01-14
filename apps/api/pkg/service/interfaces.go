@@ -7,6 +7,6 @@ import (
 )
 
 type IAuthService interface {
-	Register(ctx context.Context, request *model.RegisterRequest) (*model.RegisterResponse, error)
+	Register(ctx context.Context, request *model.RegisterRequest) (bool, error)
 	Login(ctx context.Context, request *model.LoginRequest) (*model.LoginResponse, error)
 }
