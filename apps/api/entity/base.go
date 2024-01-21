@@ -3,5 +3,6 @@ package entity
 const (
 	DatabaseName = "vinance"
 
-	TableNameAuth = "auths"
+	TableNameAuth   = "auths"
+	TableNameMember = "members"
 )

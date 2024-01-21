@@ -5,6 +5,7 @@ import (
 
 	"github.com/vincentkdeli/vinance-backend/entity"
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
@@ -41,4 +42,26 @@ func (r *Auth) FindOneByEmail(ctx context.Context, email string) (*entity.Auth, 
 	}
 
 	return data, nil
+}
+
+func (r *Auth) UpdateOne(ctx context.Context, id string) (*entity.Auth, error) {
+	documentID, err := primitive.ObjectIDFromHex(id)
+	if err != nil {
+		return nil, err
+	}
+
+	if _, err = r.db.Collection(entity.TableNameAuth).UpdateOne(ctx,
+		bson.D{{"_id", documentID}},
+		bson.D{{"$set", bson.D{{"is_member", true}}}},
+	); err != nil {
+		return nil, err
+	}
+
+	var auth *entity.Auth
+	err = r.db.Collection(entity.TableNameAuth).FindOne(ctx, bson.M{"_id": documentID}).Decode(&auth)
+	if err != nil {
+		return nil, err
+	}
+
+	return auth, nil
 }

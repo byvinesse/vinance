@@ -71,3 +71,15 @@ func toLoginResponse(accessToken string, accessTokenExpiresAt time.Time) *model.
 		AccessTokenExpiresAt: accessTokenExpiresAt,
 	}
 }
+
+func (s *AuthService) CompleteMemberOnboarding(
+	ctx context.Context,
+	request *model.CompleteMemberOnboardingRequest,
+) (bool, error) {
+	data, err := s.authRepo.UpdateOne(ctx, request.ID)
+	if err != nil {
+		return false, err
+	}
+
+	return data != nil, nil
+}
