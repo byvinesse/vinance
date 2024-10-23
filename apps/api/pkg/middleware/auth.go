@@ -4,10 +4,10 @@ import (
 	"log"
 	"strings"
 
+	"github.com/byvinesse/vinance-backend/entity"
+	auth "github.com/byvinesse/vinance-backend/pkg/authenticator"
+	"github.com/byvinesse/vinance-backend/pkg/errors"
 	"github.com/labstack/echo/v4"
-	"github.com/vincentkdeli/vinance-backend/entity"
-	auth "github.com/vincentkdeli/vinance-backend/pkg/authenticator"
-	"github.com/vincentkdeli/vinance-backend/pkg/errors"
 )
 
 const authorizationHeaderKey = "Authorization"

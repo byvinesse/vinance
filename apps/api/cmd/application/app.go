@@ -3,12 +3,12 @@ package application
 import (
 	"context"
 
-	"github.com/vincentkdeli/vinance-backend/config"
-	"github.com/vincentkdeli/vinance-backend/entity"
-	auth "github.com/vincentkdeli/vinance-backend/pkg/authenticator"
-	"github.com/vincentkdeli/vinance-backend/pkg/service"
-	"github.com/vincentkdeli/vinance-backend/pkg/validator"
-	"github.com/vincentkdeli/vinance-backend/repository/db"
+	"github.com/byvinesse/vinance-backend/config"
+	"github.com/byvinesse/vinance-backend/entity"
+	auth "github.com/byvinesse/vinance-backend/pkg/authenticator"
+	"github.com/byvinesse/vinance-backend/pkg/service"
+	"github.com/byvinesse/vinance-backend/pkg/validator"
+	"github.com/byvinesse/vinance-backend/repository/db"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )

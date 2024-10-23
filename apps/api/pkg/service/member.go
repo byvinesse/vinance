@@ -4,9 +4,9 @@ import (
 	"context"
 	"time"
 
-	"github.com/vincentkdeli/vinance-backend/entity"
-	"github.com/vincentkdeli/vinance-backend/model"
-	"github.com/vincentkdeli/vinance-backend/repository"
+	"github.com/byvinesse/vinance-backend/entity"
+	"github.com/byvinesse/vinance-backend/model"
+	"github.com/byvinesse/vinance-backend/repository"
 )
 
 type MemberService struct {

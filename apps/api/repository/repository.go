@@ -3,7 +3,7 @@ package repository
 import (
 	"context"
 
-	"github.com/vincentkdeli/vinance-backend/entity"
+	"github.com/byvinesse/vinance-backend/entity"
 )
 
 type Auth interface {

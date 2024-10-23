@@ -3,7 +3,7 @@ package service
 import (
 	"context"
 
-	"github.com/vincentkdeli/vinance-backend/model"
+	"github.com/byvinesse/vinance-backend/model"
 )
 
 type IAuthService interface {

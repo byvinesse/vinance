@@ -3,7 +3,7 @@ package db
 import (
 	"context"
 
-	"github.com/vincentkdeli/vinance-backend/entity"
+	"github.com/byvinesse/vinance-backend/entity"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 )

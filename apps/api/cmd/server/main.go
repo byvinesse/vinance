@@ -4,14 +4,14 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/byvinesse/vinance-backend/cmd/application"
+	"github.com/byvinesse/vinance-backend/handler/server"
+	"github.com/byvinesse/vinance-backend/pkg/errors"
+	"github.com/byvinesse/vinance-backend/pkg/response"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	"github.com/vincentkdeli/vinance-backend/cmd/application"
-	"github.com/vincentkdeli/vinance-backend/handler/server"
-	"github.com/vincentkdeli/vinance-backend/pkg/errors"
-	"github.com/vincentkdeli/vinance-backend/pkg/response"
 
-	appmiddleware "github.com/vincentkdeli/vinance-backend/pkg/middleware"
+	appmiddleware "github.com/byvinesse/vinance-backend/pkg/middleware"
 )
 
 func Run(app *application.App) {

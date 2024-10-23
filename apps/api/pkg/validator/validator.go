@@ -5,8 +5,8 @@ import (
 	"reflect"
 	"strings"
 
+	"github.com/byvinesse/vinance-backend/pkg/errors"
 	"github.com/go-playground/validator/v10"
-	"github.com/vincentkdeli/vinance-backend/pkg/errors"
 )
 
 var (

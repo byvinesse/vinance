@@ -3,8 +3,8 @@ package response
 import (
 	"net/http"
 
+	"github.com/byvinesse/vinance-backend/entity"
 	"github.com/labstack/echo/v4"
-	"github.com/vincentkdeli/vinance-backend/entity"
 )
 
 func Ok[T any](c echo.Context, data T) error {

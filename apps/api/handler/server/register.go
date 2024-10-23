@@ -3,10 +3,10 @@ package server
 import (
 	"fmt"
 
+	"github.com/byvinesse/vinance-backend/model"
+	"github.com/byvinesse/vinance-backend/pkg/errors"
+	"github.com/byvinesse/vinance-backend/pkg/response"
 	"github.com/labstack/echo/v4"
-	"github.com/vincentkdeli/vinance-backend/model"
-	"github.com/vincentkdeli/vinance-backend/pkg/errors"
-	"github.com/vincentkdeli/vinance-backend/pkg/response"
 )
 
 func (h *Handler) Register(c echo.Context) error {

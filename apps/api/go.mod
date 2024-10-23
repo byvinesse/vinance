@@ -1,4 +1,4 @@
-module github.com/vincentkdeli/vinance-backend
+module github.com/byvinesse/vinance-backend
 
 go 1.19
 // v0.1.0-1

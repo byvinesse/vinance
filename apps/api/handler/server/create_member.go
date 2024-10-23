@@ -3,11 +3,11 @@ package server
 import (
 	"fmt"
 
+	"github.com/byvinesse/vinance-backend/model"
+	"github.com/byvinesse/vinance-backend/pkg/errors"
+	"github.com/byvinesse/vinance-backend/pkg/response"
+	"github.com/byvinesse/vinance-backend/pkg/validator"
 	"github.com/labstack/echo/v4"
-	"github.com/vincentkdeli/vinance-backend/model"
-	"github.com/vincentkdeli/vinance-backend/pkg/errors"
-	"github.com/vincentkdeli/vinance-backend/pkg/response"
-	"github.com/vincentkdeli/vinance-backend/pkg/validator"
 )
 
 func (h *Handler) CreateMember(c echo.Context) error {

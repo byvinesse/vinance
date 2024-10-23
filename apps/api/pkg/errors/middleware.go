@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/byvinesse/vinance-backend/entity"
+	"github.com/byvinesse/vinance-backend/pkg/log"
 	"github.com/labstack/echo/v4"
-	"github.com/vincentkdeli/vinance-backend/entity"
-	"github.com/vincentkdeli/vinance-backend/pkg/log"
 )
 
 func Middleware(err error, c echo.Context) {

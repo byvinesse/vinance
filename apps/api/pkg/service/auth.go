@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/vincentkdeli/vinance-backend/entity"
-	"github.com/vincentkdeli/vinance-backend/model"
-	auth "github.com/vincentkdeli/vinance-backend/pkg/authenticator"
-	"github.com/vincentkdeli/vinance-backend/pkg/errors"
-	"github.com/vincentkdeli/vinance-backend/pkg/utils"
-	"github.com/vincentkdeli/vinance-backend/repository"
+	"github.com/byvinesse/vinance-backend/entity"
+	"github.com/byvinesse/vinance-backend/model"
+	auth "github.com/byvinesse/vinance-backend/pkg/authenticator"
+	"github.com/byvinesse/vinance-backend/pkg/errors"
+	"github.com/byvinesse/vinance-backend/pkg/utils"
+	"github.com/byvinesse/vinance-backend/repository"
 )
 
 type AuthService struct {

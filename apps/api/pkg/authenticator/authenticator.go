@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/byvinesse/vinance-backend/config"
+	"github.com/byvinesse/vinance-backend/entity"
+	"github.com/byvinesse/vinance-backend/pkg/errors"
 	"github.com/golang-jwt/jwt"
-	"github.com/vincentkdeli/vinance-backend/config"
-	"github.com/vincentkdeli/vinance-backend/entity"
-	"github.com/vincentkdeli/vinance-backend/pkg/errors"
 )
 
 type Authenticator struct {
