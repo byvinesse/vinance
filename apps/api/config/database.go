@@ -1,13 +1,27 @@
 package config
 
-import "github.com/kelseyhightower/envconfig"
+import (
+	"log"
+	"os"
+
+	"github.com/joho/godotenv"
+)
 
 type Database struct {
 	URI string `required:"true"`
 }
 
 func LoadDatabase() Database {
-	var config Database
-	envconfig.MustProcess("DATABASE", &config)
-	return config
+	if err := godotenv.Load(); err != nil {
+		log.Fatalf("Error loading .env file: %v", err)
+	}
+
+	uri := os.Getenv("DATABASE_URI")
+	if uri == "" {
+		log.Fatal("Missing configuration(s)")
+	}
+
+	return Database{
+		URI: uri,
+	}
 }
