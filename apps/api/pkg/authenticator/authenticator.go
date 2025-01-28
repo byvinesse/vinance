@@ -20,15 +20,15 @@ func NewAuthenticator(config config.Auth) *Authenticator {
 	}
 }
 
-func (s *Authenticator) GenerateJwtToken(auth entity.Auth) (string, time.Time, error) {
+func (s *Authenticator) GenerateJwtToken(user entity.User) (string, time.Time, error) {
 	tokenExpiresAt := time.Now().Add(s.config.AccessTokenDuration).UTC()
 
 	tokenClaims := &entity.TokenClaims{
 		StandardClaims: jwt.StandardClaims{
 			ExpiresAt: tokenExpiresAt.Unix(),
 		},
-		UserID:    auth.ID.String(),
-		UserEmail: auth.Email,
+		UserID:    user.ID,
+		UserEmail: user.Email,
 	}
 
 	unsignedToken := jwt.NewWithClaims(jwt.SigningMethodHS256, tokenClaims)

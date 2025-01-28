@@ -13,33 +13,36 @@ import (
 	"github.com/byvinesse/vinance-backend/repository"
 )
 
-type AuthService struct {
-	authRepo      repository.Auth
+type UserService struct {
+	userRepo      repository.User
 	authenticator auth.Authenticator
 }
 
-func NewAuthService(authRepo repository.Auth, authenticator auth.Authenticator) *AuthService {
-	return &AuthService{
-		authRepo:      authRepo,
+func NewUserService(userRepo repository.User, authenticator auth.Authenticator) *UserService {
+	return &UserService{
+		userRepo:      userRepo,
 		authenticator: authenticator,
 	}
 }
 
-func (s *AuthService) Register(ctx context.Context, request *model.RegisterRequest) (bool, error) {
+func (s *UserService) Register(ctx context.Context, request *model.RegisterRequest) (bool, error) {
 	hashedPassword, err := utils.HashPassword(request.Password)
 	if err != nil {
 		return false, err
 	}
 
-	payload := entity.Auth{
-		Email:     request.Email,
-		Password:  hashedPassword,
-		IsMember:  false,
-		CreatedAt: time.Now(),
-		UpdatedAt: time.Now(),
+	payload := entity.User{
+		Email:        request.Email,
+		PasswordHash: hashedPassword,
+		Username:     request.Username,
+		PhoneNumber:  request.PhoneNumber,
+		DateOfBirth:  request.DateOfBirth,
+		Gender:       request.Gender,
+		CreatedAt:    time.Now(),
+		UpdatedAt:    time.Now(),
 	}
 
-	res, err := s.authRepo.InsertOne(ctx, &payload)
+	res, err := s.userRepo.InsertOne(ctx, &payload)
 	if err != nil {
 		return false, err
 	}
@@ -47,13 +50,13 @@ func (s *AuthService) Register(ctx context.Context, request *model.RegisterReque
 	return res != nil, nil
 }
 
-func (s *AuthService) Login(ctx context.Context, request *model.LoginRequest) (*model.LoginResponse, error) {
-	data, err := s.authRepo.FindOneByEmail(ctx, request.Email)
+func (s *UserService) Login(ctx context.Context, request *model.LoginRequest) (*model.LoginResponse, error) {
+	data, err := s.userRepo.FindOneByEmail(ctx, request.Email)
 	if err != nil {
 		return nil, err
 	}
 
-	if !utils.CheckPasswordHash(request.Password, data.Password) {
+	if !utils.CheckPasswordHash(request.Password, data.PasswordHash) {
 		return nil, errors.ErrUnauthorized(fmt.Errorf("INCORRECT_PASSWORD"), "sorry, incorrect password")
 	}
 
@@ -70,16 +73,4 @@ func toLoginResponse(accessToken string, accessTokenExpiresAt time.Time) *model.
 		AccessToken:          accessToken,
 		AccessTokenExpiresAt: accessTokenExpiresAt,
 	}
-}
-
-func (s *AuthService) CompleteMemberOnboarding(
-	ctx context.Context,
-	request *model.CompleteMemberOnboardingRequest,
-) (bool, error) {
-	data, err := s.authRepo.UpdateOne(ctx, request.ID)
-	if err != nil {
-		return false, err
-	}
-
-	return data != nil, nil
 }

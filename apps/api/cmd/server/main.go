@@ -64,6 +64,4 @@ func initRoutes(e *echo.Echo, app *application.App, h *server.Handler) {
 	v1.GET("/protected", func(c echo.Context) error {
 		return response.Ok(c, true)
 	}, withAuth)
-
-	v1.POST("/member", h.CreateMember, withAuth)
 }

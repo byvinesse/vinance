@@ -6,12 +6,7 @@ import (
 	"github.com/byvinesse/vinance-backend/entity"
 )
 
-type Auth interface {
-	InsertOne(ctx context.Context, auth *entity.Auth) (*entity.Auth, error)
-	FindOneByEmail(ctx context.Context, email string) (*entity.Auth, error)
-	UpdateOne(ctx context.Context, id string) (*entity.Auth, error)
-}
-
-type Member interface {
-	InsertOne(ctx context.Context, member *entity.Member) (*entity.Member, error)
+type User interface {
+	InsertOne(ctx context.Context, user *entity.User) (*entity.User, error)
+	FindOneByEmail(ctx context.Context, email string) (*entity.User, error)
 }

@@ -23,9 +23,9 @@ func (h *Handler) Login(c echo.Context) error {
 		return errors.ErrMissingField("password")
 	}
 
-	result, err := h.app.AuthService.Login(ctx, &req)
+	result, err := h.app.UserService.Login(ctx, &req)
 	if err != nil {
-		return errors.ErrInternalServerError(err, fmt.Sprintf("failed to #login member for request: %s", req.Email))
+		return errors.ErrInternalServerError(err, fmt.Sprintf("failed to #login user for request: %s", req.Email))
 	}
 
 	return response.Ok(c, result)

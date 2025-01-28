@@ -1,19 +1,18 @@
 package application
 
 import (
+	"github.com/byvinesse/vinance-backend/config"
+	auth "github.com/byvinesse/vinance-backend/pkg/authenticator"
+	"github.com/byvinesse/vinance-backend/pkg/service"
+	"github.com/byvinesse/vinance-backend/pkg/validator"
+	"github.com/byvinesse/vinance-backend/repository/db"
 	"github.com/jmoiron/sqlx"
-	"github.com/vincentkdeli/vinance-backend/config"
-	auth "github.com/vincentkdeli/vinance-backend/pkg/authenticator"
-	"github.com/vincentkdeli/vinance-backend/pkg/service"
-	"github.com/vincentkdeli/vinance-backend/pkg/validator"
-	"github.com/vincentkdeli/vinance-backend/repository/db"
 
 	_ "github.com/lib/pq"
 )
 
 type App struct {
-	AuthService   service.IAuthService
-	MemberService service.IMemberService
+	UserService service.IUserService
 
 	Authenticator *auth.Authenticator
 }
@@ -26,18 +25,15 @@ func NewApp() *App {
 	database := connectDatabase()
 
 	// Init repository
-	authRepo := db.NewAuth(database)
-	memberRepo := db.NewMember(database)
+	userRepo := db.NewUser(database)
 
 	// Init service
-	authService := service.NewAuthService(authRepo, *authenticator)
-	memberService := service.NewMemberService(memberRepo)
+	userService := service.NewUserService(userRepo, *authenticator)
 
 	validator.Init()
 
 	return &App{
-		AuthService:   authService,
-		MemberService: memberService,
+		UserService: userService,
 
 		Authenticator: authenticator,
 	}

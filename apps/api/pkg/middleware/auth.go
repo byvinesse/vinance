@@ -42,9 +42,9 @@ func Authentication(authenticator *auth.Authenticator, config AuthConfig) echo.M
 				return errors.ErrUnauthorized(nil, "Missing Authorization header.")
 			}
 
-			log.Println("Authentication successful for: ", tokenClaims.UserEmail)
-			c.Set("member_id", tokenClaims.UserID)
-			c.Set("member_email", tokenClaims.UserEmail)
+			log.Println("Authentication successful for:", tokenClaims.UserEmail)
+			c.Set("user_id", tokenClaims.UserID)
+			c.Set("user_email", tokenClaims.UserEmail)
 
 			return next(c)
 		}

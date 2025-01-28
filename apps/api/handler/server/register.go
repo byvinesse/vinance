@@ -6,6 +6,7 @@ import (
 	"github.com/byvinesse/vinance-backend/model"
 	"github.com/byvinesse/vinance-backend/pkg/errors"
 	"github.com/byvinesse/vinance-backend/pkg/response"
+	"github.com/byvinesse/vinance-backend/pkg/validator"
 	"github.com/labstack/echo/v4"
 )
 
@@ -17,15 +18,25 @@ func (h *Handler) Register(c echo.Context) error {
 		return errors.ErrParseFailed(err)
 	}
 
+	if err := validator.ValidateStruct(ctx, req); err != nil {
+		return errors.ErrParseFailed(err)
+	}
+
 	if req.Email == "" {
 		return errors.ErrMissingField("email")
 	} else if req.Password == "" {
 		return errors.ErrMissingField("password")
+	} else if req.PhoneNumber == "" {
+		return errors.ErrMissingField("phone_number")
+	} else if req.Gender == "" {
+		return errors.ErrMissingField("gender")
+	} else if req.DateOfBirth.IsZero() {
+		return errors.ErrMissingField("date_of_birth")
 	}
 
-	result, err := h.app.AuthService.Register(ctx, &req)
+	result, err := h.app.UserService.Register(ctx, &req)
 	if err != nil {
-		return errors.ErrInternalServerError(err, fmt.Sprintf("failed to #register new member for request: %s", req.Email))
+		return errors.ErrInternalServerError(err, fmt.Sprintf("failed to #register new user for request: %s", req.Email))
 	}
 
 	return response.Ok(c, result)
