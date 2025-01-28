@@ -3,65 +3,67 @@ package db
 import (
 	"context"
 
-	"github.com/byvinesse/vinance-backend/entity"
-	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/bson/primitive"
-	"go.mongodb.org/mongo-driver/mongo"
+	sq "github.com/Masterminds/squirrel"
+	"github.com/jmoiron/sqlx"
+	"github.com/vincentkdeli/vinance-backend/entity"
 )
 
 type Auth struct {
-	db *mongo.Database
+	db *sqlx.DB
 }
 
-func NewAuth(db *mongo.Database) *Auth {
+func NewAuth(db *sqlx.DB) *Auth {
 	return &Auth{
 		db: db,
 	}
 }
 
 func (r *Auth) InsertOne(ctx context.Context, auth *entity.Auth) (*entity.Auth, error) {
-	res, err := r.db.Collection(entity.TableNameAuth).InsertOne(ctx, auth)
+	queryBuilder := sq.Insert(entity.TableNameAuth).
+		Columns("email", "password", "is_member", "created_at", "updated_at").
+		Values(auth.Email, auth.Password, auth.IsMember, auth.CreatedAt, auth.UpdatedAt).
+		Suffix("RETURNING *")
+
+	query, args, _ := queryBuilder.PlaceholderFormat(sq.Dollar).ToSql()
+
+	var res entity.Auth
+	err := r.db.GetContext(ctx, &res, query, args...)
 	if err != nil {
 		return nil, err
 	}
 
-	var newAuth *entity.Auth
-	err = r.db.Collection(entity.TableNameAuth).FindOne(ctx, bson.M{"_id": res.InsertedID}).Decode(&newAuth)
-	if err != nil {
-		return nil, err
-	}
-
-	return newAuth, nil
+	return &res, nil
 }
 
 func (r *Auth) FindOneByEmail(ctx context.Context, email string) (*entity.Auth, error) {
-	var data *entity.Auth
+	queryBuilder := sq.Select("*").
+		From(entity.TableNameAuth).
+		Where(sq.Eq{"email": email})
 
-	if err := r.db.Collection(entity.TableNameAuth).FindOne(ctx, bson.M{"email": email}).Decode(&data); err != nil {
+	query, args, _ := queryBuilder.PlaceholderFormat(sq.Dollar).ToSql()
+
+	var auth entity.Auth
+	err := r.db.GetContext(ctx, &auth, query, args...)
+	if err != nil {
 		return nil, err
 	}
 
-	return data, nil
+	return &auth, nil
 }
 
 func (r *Auth) UpdateOne(ctx context.Context, id string) (*entity.Auth, error) {
-	documentID, err := primitive.ObjectIDFromHex(id)
+	queryBuilder := sq.Update(entity.TableNameAuth).
+		Set("is_member", true).
+		Where(sq.Eq{"id": id}).
+		Suffix("RETURNING *")
+
+	query, args, _ := queryBuilder.PlaceholderFormat(sq.Dollar).ToSql()
+
+	var res entity.Auth
+	err := r.db.QueryRowxContext(ctx, query, args...).StructScan(&res)
 	if err != nil {
 		return nil, err
 	}
 
-	if _, err = r.db.Collection(entity.TableNameAuth).UpdateOne(ctx,
-		bson.D{{"_id", documentID}},
-		bson.D{{"$set", bson.D{{"is_member", true}}}},
-	); err != nil {
-		return nil, err
-	}
-
-	var auth *entity.Auth
-	err = r.db.Collection(entity.TableNameAuth).FindOne(ctx, bson.M{"_id": documentID}).Decode(&auth)
-	if err != nil {
-		return nil, err
-	}
-
-	return auth, nil
+	return &res, err
 }

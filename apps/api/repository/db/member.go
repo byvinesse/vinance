@@ -3,32 +3,34 @@ package db
 import (
 	"context"
 
-	"github.com/byvinesse/vinance-backend/entity"
-	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo"
+	sq "github.com/Masterminds/squirrel"
+	"github.com/jmoiron/sqlx"
+	"github.com/vincentkdeli/vinance-backend/entity"
 )
 
 type Member struct {
-	db *mongo.Database
+	db *sqlx.DB
 }
 
-func NewMember(db *mongo.Database) *Member {
+func NewMember(db *sqlx.DB) *Member {
 	return &Member{
 		db: db,
 	}
 }
 
 func (r *Member) InsertOne(ctx context.Context, member *entity.Member) (*entity.Member, error) {
-	res, err := r.db.Collection(entity.TableNameMember).InsertOne(ctx, member)
+	queryBuilder := sq.Insert(entity.TableNameMember).
+		Columns("email", "username", "phone_number", "date_of_birth", "gender", "created_at", "updated_at").
+		Values(member.Email, member.Username, member.PhoneNumber, member.DateOfBirth, member.Gender, member.CreatedAt, member.UpdatedAt).
+		Suffix("RETURNING *")
+
+	query, args, _ := queryBuilder.PlaceholderFormat(sq.Dollar).ToSql()
+
+	var res entity.Member
+	err := r.db.GetContext(ctx, &res, query, args...)
 	if err != nil {
 		return nil, err
 	}
 
-	var newMember *entity.Member
-	err = r.db.Collection(entity.TableNameMember).FindOne(ctx, bson.M{"_id": res.InsertedID}).Decode(&newMember)
-	if err != nil {
-		return nil, err
-	}
-
-	return newMember, nil
+	return &res, nil
 }

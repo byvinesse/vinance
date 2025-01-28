@@ -1,16 +1,14 @@
 package application
 
 import (
-	"context"
+	"github.com/jmoiron/sqlx"
+	"github.com/vincentkdeli/vinance-backend/config"
+	auth "github.com/vincentkdeli/vinance-backend/pkg/authenticator"
+	"github.com/vincentkdeli/vinance-backend/pkg/service"
+	"github.com/vincentkdeli/vinance-backend/pkg/validator"
+	"github.com/vincentkdeli/vinance-backend/repository/db"
 
-	"github.com/byvinesse/vinance-backend/config"
-	"github.com/byvinesse/vinance-backend/entity"
-	auth "github.com/byvinesse/vinance-backend/pkg/authenticator"
-	"github.com/byvinesse/vinance-backend/pkg/service"
-	"github.com/byvinesse/vinance-backend/pkg/validator"
-	"github.com/byvinesse/vinance-backend/repository/db"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
+	_ "github.com/lib/pq"
 )
 
 type App struct {
@@ -21,13 +19,11 @@ type App struct {
 }
 
 func NewApp() *App {
-	ctx := context.Background()
-
 	authConfig := config.LoadAuth()
 	authenticator := auth.NewAuthenticator(authConfig)
 
 	// Init Database
-	database := connectDatabase(ctx)
+	database := connectDatabase()
 
 	// Init repository
 	authRepo := db.NewAuth(database)
@@ -47,20 +43,13 @@ func NewApp() *App {
 	}
 }
 
-func connectDatabase(ctx context.Context) *mongo.Database {
+func connectDatabase() *sqlx.DB {
 	databaseConfig := config.LoadDatabase()
-	clientOptions := options.Client()
-	clientOptions.ApplyURI(databaseConfig.URI)
 
-	client, err := mongo.NewClient(clientOptions)
+	database, err := sqlx.Open("postgres", databaseConfig.URI)
 	if err != nil {
 		panic(err)
 	}
 
-	err = client.Connect(ctx)
-	if err != nil {
-		panic(err)
-	}
-
-	return client.Database(entity.DatabaseName)
+	return database
 }

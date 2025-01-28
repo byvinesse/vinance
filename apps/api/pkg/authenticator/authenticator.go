@@ -27,7 +27,7 @@ func (s *Authenticator) GenerateJwtToken(auth entity.Auth) (string, time.Time, e
 		StandardClaims: jwt.StandardClaims{
 			ExpiresAt: tokenExpiresAt.Unix(),
 		},
-		UserID:    auth.ID,
+		UserID:    auth.ID.String(),
 		UserEmail: auth.Email,
 	}
 
