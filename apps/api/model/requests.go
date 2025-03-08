@@ -1,6 +1,10 @@
 package model
 
-import "time"
+import (
+	"time"
+
+	"github.com/byvinesse/vinance-backend/entity"
+)
 
 type RegisterRequest struct {
 	Email       string    `json:"email"`
@@ -14,4 +18,12 @@ type RegisterRequest struct {
 type LoginRequest struct {
 	Email    string `json:"email"`
 	Password string `json:"password"`
+}
+
+type CreateAccountRequest struct {
+	Name     string              `json:"name"`
+	Balance  float64             `json:"balance"`
+	Currency entity.CurrencyType `json:"currency"`
+	Type     entity.AccountType  `json:"type"`
+	Color    string              `json:"color"`
 }

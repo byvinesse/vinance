@@ -12,7 +12,8 @@ import (
 )
 
 type App struct {
-	UserService service.IUserService
+	UserService    service.IUserService
+	AccountService service.IAccountService
 
 	Authenticator *auth.Authenticator
 }
@@ -26,14 +27,17 @@ func NewApp() *App {
 
 	// Init repository
 	userRepo := db.NewUser(database)
+	accountRepo := db.NewAccount(database)
 
 	// Init service
 	userService := service.NewUserService(userRepo, *authenticator)
+	accountService := service.NewAccountService(accountRepo)
 
 	validator.Init()
 
 	return &App{
-		UserService: userService,
+		UserService:    userService,
+		AccountService: accountService,
 
 		Authenticator: authenticator,
 	}

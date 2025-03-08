@@ -14,3 +14,11 @@ func Ok[T any](c echo.Context, data T) error {
 		Data:   data,
 	})
 }
+
+func OkCreated[T any](c echo.Context, data T) error {
+	return c.JSON(http.StatusCreated, entity.OkResponse[T]{
+		Code:   201,
+		Status: "Created",
+		Data:   data,
+	})
+}

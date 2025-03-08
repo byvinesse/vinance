@@ -64,4 +64,11 @@ func initRoutes(e *echo.Echo, app *application.App, h *server.Handler) {
 	v1.GET("/protected", func(c echo.Context) error {
 		return response.Ok(c, true)
 	}, withAuth)
+
+	// Accounts
+	accountsRoute := e.Group("/accounts")
+
+	// Accounts V1
+	accountsV1Route := accountsRoute.Group("/v1")
+	accountsV1Route.POST("/_create", h.CreateAccount, withAuth)
 }
