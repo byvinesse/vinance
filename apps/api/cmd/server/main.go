@@ -42,17 +42,6 @@ func Run(app *application.App) {
 }
 
 func initRoutes(e *echo.Echo, app *application.App, h *server.Handler) {
-	// Healthcheck
-	e.GET("/healthcheck", func(c echo.Context) error {
-		return c.String(http.StatusOK, "OK")
-	})
-
-	v1 := e.Group("/v1")
-
-	// Auth
-	v1.POST("/register", h.Register)
-	v1.POST("/login", h.Login)
-
 	withAuth := appmiddleware.Authentication(
 		app.Authenticator,
 		appmiddleware.AuthConfig{
@@ -60,10 +49,21 @@ func initRoutes(e *echo.Echo, app *application.App, h *server.Handler) {
 		},
 	)
 
-	// TODO: delete
-	v1.GET("/protected", func(c echo.Context) error {
+	// Healthcheck
+	e.GET("/healthcheck", func(c echo.Context) error {
+		return c.String(http.StatusOK, "OK")
+	})
+	e.GET("/protected", func(c echo.Context) error {
 		return response.Ok(c, true)
 	}, withAuth)
+
+	// Auth
+	authRoute := e.Group("/auth")
+
+	// Auth V1
+	authV1Route := authRoute.Group("/v1")
+	authV1Route.POST("/register", h.Register)
+	authV1Route.POST("/login", h.Login)
 
 	// Accounts
 	accountsRoute := e.Group("/accounts")
