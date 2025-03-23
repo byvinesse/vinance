@@ -21,11 +21,11 @@ jobs:
         run: go build -v ./...
         
       - name: Test
-        run: make test
+        run: go test -v -cover ./...
         
       - name: Lint
         run: |
           # Install golangci-lint
           curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.55.2
           # Run linter
-          make lint 
+          golangci-lint run ./...
