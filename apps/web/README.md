@@ -24,3 +24,7 @@ This project uses:
 - React 19
 - Tailwind CSS
 - TypeScript
+
+# Vinance Web
+
+![Build and Test](https://github.com/your-username/vinance-web/workflows/Build%20and%20Test/badge.svg)
