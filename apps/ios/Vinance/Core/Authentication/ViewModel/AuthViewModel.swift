@@ -17,7 +17,7 @@ class AuthViewModel: ObservableObject {
     }
     
     func login(withEmail email: String, password: String) async throws {
-        guard let url = URL(string: "http://localhost:8080/v1/login") else {
+        guard let url = URL(string: "http://localhost:8080/auth/v1/login") else {
             throw CustomError.invalidURL
         }
         
@@ -47,7 +47,7 @@ class AuthViewModel: ObservableObject {
             throw CustomError.invalidData
         }
         
-        guard let url = URL(string: "http://localhost:8080/v1/register") else {
+        guard let url = URL(string: "http://localhost:8080/auth/v1/register") else {
             throw CustomError.invalidURL
         }
         
