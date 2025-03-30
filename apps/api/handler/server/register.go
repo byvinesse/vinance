@@ -26,12 +26,6 @@ func (h *Handler) Register(c echo.Context) error {
 		return errors.ErrMissingField("email")
 	} else if req.Password == "" {
 		return errors.ErrMissingField("password")
-	} else if req.PhoneNumber == "" {
-		return errors.ErrMissingField("phone_number")
-	} else if req.Gender == "" {
-		return errors.ErrMissingField("gender")
-	} else if req.DateOfBirth.IsZero() {
-		return errors.ErrMissingField("date_of_birth")
 	}
 
 	result, err := h.app.UserService.Register(ctx, &req)

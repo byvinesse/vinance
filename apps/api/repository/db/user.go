@@ -19,9 +19,17 @@ func NewUser(db *sqlx.DB) *User {
 }
 
 func (r *User) InsertOne(ctx context.Context, user *entity.User) (*entity.User, error) {
+	columns := []string{"email", "password_hash", "username", "phone_number", "gender", "created_at", "updated_at"}
+	values := []interface{}{user.Email, user.PasswordHash, user.Username, user.PhoneNumber, user.Gender, user.CreatedAt, user.UpdatedAt}
+
+	if user.DateOfBirth != nil {
+		columns = append(columns, "date_of_birth")
+		values = append(values, user.DateOfBirth)
+	}
+
 	queryBuilder := sq.Insert(entity.TableNameUser).
-		Columns("email", "password_hash", "username", "phone_number", "date_of_birth", "gender", "created_at", "updated_at").
-		Values(user.Email, user.PasswordHash, user.Username, user.PhoneNumber, user.DateOfBirth, user.Gender, user.CreatedAt, user.UpdatedAt).
+		Columns(columns...).
+		Values(values...).
 		Suffix("RETURNING *")
 
 	query, args, _ := queryBuilder.PlaceholderFormat(sq.Dollar).ToSql()
