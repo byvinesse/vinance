@@ -7,13 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E2C68A502B1BA89100926D87 /* vinanceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A4F2B1BA89100926D87 /* vinanceApp.swift */; };
+		E24AEAC32B1CDCCA002EC92A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24AEAC22B1CDCCA002EC92A /* LoginView.swift */; };
+		E24AEAC52B1CDE39002EC92A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24AEAC42B1CDE39002EC92A /* InputView.swift */; };
+		E24AEAC72B1CE17F002EC92A /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24AEAC62B1CE17F002EC92A /* RegistrationView.swift */; };
+		E286D1EE2D9CC72600CE5281 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D1ED2D9CC72600CE5281 /* APIConfig.swift */; };
+		E286D1F02D9CC74B00CE5281 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D1EF2D9CC74B00CE5281 /* NetworkService.swift */; };
+		E286D1F42D9CC80E00CE5281 /* AuthModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D1F32D9CC80E00CE5281 /* AuthModels.swift */; };
+		E286D1F62D9CC8EE00CE5281 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D1F52D9CC8EE00CE5281 /* HomeView.swift */; };
+		E293932D2B54172E0002EA80 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E293932C2B54172E0002EA80 /* RegisterRequest.swift */; };
+		E293932F2B5417D60002EA80 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E293932E2B5417D60002EA80 /* RegisterResponse.swift */; };
+		E2C68A502B1BA89100926D87 /* VinanceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A4F2B1BA89100926D87 /* VinanceApp.swift */; };
 		E2C68A522B1BA89100926D87 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A512B1BA89100926D87 /* ContentView.swift */; };
 		E2C68A542B1BA89200926D87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C68A532B1BA89200926D87 /* Assets.xcassets */; };
 		E2C68A572B1BA89200926D87 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C68A562B1BA89200926D87 /* Preview Assets.xcassets */; };
-		E2C68A612B1BA89200926D87 /* vinanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A602B1BA89200926D87 /* vinanceTests.swift */; };
-		E2C68A6B2B1BA89200926D87 /* vinanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A6A2B1BA89200926D87 /* vinanceUITests.swift */; };
-		E2C68A6D2B1BA89200926D87 /* vinanceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A6C2B1BA89200926D87 /* vinanceUITestsLaunchTests.swift */; };
+		E2C68A612B1BA89200926D87 /* VinanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A602B1BA89200926D87 /* VinanceTests.swift */; };
+		E2C68A6B2B1BA89200926D87 /* VinanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A6A2B1BA89200926D87 /* VinanceUITests.swift */; };
+		E2C68A6D2B1BA89200926D87 /* VinanceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A6C2B1BA89200926D87 /* VinanceUITestsLaunchTests.swift */; };
+		E2CA963D2B1DCFE500F6FA2F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA963C2B1DCFE500F6FA2F /* ProfileView.swift */; };
+		E2CA963F2B1DD18C00F6FA2F /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA963E2B1DD18C00F6FA2F /* SettingsRowView.swift */; };
+		E2CA96412B1DD34A00F6FA2F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA96402B1DD34A00F6FA2F /* User.swift */; };
+		E2CA96462B1DD78700F6FA2F /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA96452B1DD78700F6FA2F /* AuthViewModel.swift */; };
+		E2CA96492B1E1F8A00F6FA2F /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA96482B1E1F8A00F6FA2F /* LoginRequest.swift */; };
+		E2CA964C2B1E1FCD00F6FA2F /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA964B2B1E1FCD00F6FA2F /* CustomError.swift */; };
+		E2CA964F2B1E200400F6FA2F /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA964E2B1E200400F6FA2F /* LoginResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,16 +50,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E2C68A4C2B1BA89100926D87 /* vinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2C68A4F2B1BA89100926D87 /* vinanceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vinanceApp.swift; sourceTree = "<group>"; };
+		E24AEAC22B1CDCCA002EC92A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E24AEAC42B1CDE39002EC92A /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		E24AEAC62B1CE17F002EC92A /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		E286D1ED2D9CC72600CE5281 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
+		E286D1EF2D9CC74B00CE5281 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E286D1F32D9CC80E00CE5281 /* AuthModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModels.swift; sourceTree = "<group>"; };
+		E286D1F52D9CC8EE00CE5281 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = Vinance/Core/Authentication/Model/HomeView.swift; sourceTree = SOURCE_ROOT; };
+		E293932C2B54172E0002EA80 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
+		E293932E2B5417D60002EA80 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
+		E2C68A4C2B1BA89100926D87 /* Vinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2C68A4F2B1BA89100926D87 /* VinanceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VinanceApp.swift; sourceTree = "<group>"; };
 		E2C68A512B1BA89100926D87 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E2C68A532B1BA89200926D87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2C68A562B1BA89200926D87 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E2C68A5C2B1BA89200926D87 /* vinanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vinanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2C68A602B1BA89200926D87 /* vinanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vinanceTests.swift; sourceTree = "<group>"; };
-		E2C68A662B1BA89200926D87 /* vinanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vinanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2C68A6A2B1BA89200926D87 /* vinanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vinanceUITests.swift; sourceTree = "<group>"; };
-		E2C68A6C2B1BA89200926D87 /* vinanceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vinanceUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E2C68A5C2B1BA89200926D87 /* VinanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VinanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2C68A602B1BA89200926D87 /* VinanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VinanceTests.swift; sourceTree = "<group>"; };
+		E2C68A662B1BA89200926D87 /* VinanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VinanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2C68A6A2B1BA89200926D87 /* VinanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VinanceUITests.swift; sourceTree = "<group>"; };
+		E2C68A6C2B1BA89200926D87 /* VinanceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VinanceUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E2CA963C2B1DCFE500F6FA2F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E2CA963E2B1DD18C00F6FA2F /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
+		E2CA96402B1DD34A00F6FA2F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E2CA96452B1DD78700F6FA2F /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		E2CA96482B1E1F8A00F6FA2F /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		E2CA964B2B1E1FCD00F6FA2F /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		E2CA964E2B1E200400F6FA2F /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,12 +103,104 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E24AEABA2B1CDBA0002EC92A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E2C68A4F2B1BA89100926D87 /* VinanceApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E24AEABC2B1CDBA8002EC92A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E24AEAC42B1CDE39002EC92A /* InputView.swift */,
+				E2CA963E2B1DD18C00F6FA2F /* SettingsRowView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E24AEABD2B1CDBAB002EC92A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E286D1EA2D9CBDF000CE5281 /* Home */,
+				E286D1EC2D9CC71500CE5281 /* Network */,
+				E24AEAC02B1CDC56002EC92A /* Authentication */,
+				E24AEAC12B1CDC5C002EC92A /* Profile */,
+				E24AEABF2B1CDC0C002EC92A /* Root */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E24AEABE2B1CDBAF002EC92A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E2CA964A2B1E1FBF00F6FA2F /* Error */,
+				E2CA96472B1E1F7500F6FA2F /* Request */,
+				E2CA964D2B1E1FFA00F6FA2F /* Response */,
+				E2CA96402B1DD34A00F6FA2F /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E24AEABF2B1CDC0C002EC92A /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				E2C68A512B1BA89100926D87 /* ContentView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		E24AEAC02B1CDC56002EC92A /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				E286D1F22D9CC7F100CE5281 /* Model */,
+				E2CA96422B1DD74B00F6FA2F /* View */,
+				E2CA96442B1DD75C00F6FA2F /* ViewModel */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		E24AEAC12B1CDC5C002EC92A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E2CA963C2B1DCFE500F6FA2F /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		E286D1EA2D9CBDF000CE5281 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E286D1F52D9CC8EE00CE5281 /* HomeView.swift */,
+			);
+			name = Home;
+			path = Authentication/Home;
+			sourceTree = "<group>";
+		};
+		E286D1EC2D9CC71500CE5281 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E286D1ED2D9CC72600CE5281 /* APIConfig.swift */,
+				E286D1EF2D9CC74B00CE5281 /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E286D1F22D9CC7F100CE5281 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E286D1F32D9CC80E00CE5281 /* AuthModels.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E2C68A432B1BA89100926D87 = {
 			isa = PBXGroup;
 			children = (
-				E2C68A4E2B1BA89100926D87 /* vinance */,
-				E2C68A5F2B1BA89200926D87 /* vinanceTests */,
-				E2C68A692B1BA89200926D87 /* vinanceUITests */,
+				E2C68A4E2B1BA89100926D87 /* Vinance */,
+				E2C68A5F2B1BA89200926D87 /* VinanceTests */,
+				E2C68A692B1BA89200926D87 /* VinanceUITests */,
 				E2C68A4D2B1BA89100926D87 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -84,22 +208,24 @@
 		E2C68A4D2B1BA89100926D87 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E2C68A4C2B1BA89100926D87 /* vinance.app */,
-				E2C68A5C2B1BA89200926D87 /* vinanceTests.xctest */,
-				E2C68A662B1BA89200926D87 /* vinanceUITests.xctest */,
+				E2C68A4C2B1BA89100926D87 /* Vinance.app */,
+				E2C68A5C2B1BA89200926D87 /* VinanceTests.xctest */,
+				E2C68A662B1BA89200926D87 /* VinanceUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E2C68A4E2B1BA89100926D87 /* vinance */ = {
+		E2C68A4E2B1BA89100926D87 /* Vinance */ = {
 			isa = PBXGroup;
 			children = (
-				E2C68A4F2B1BA89100926D87 /* vinanceApp.swift */,
-				E2C68A512B1BA89100926D87 /* ContentView.swift */,
+				E24AEABA2B1CDBA0002EC92A /* App */,
+				E24AEABC2B1CDBA8002EC92A /* Components */,
+				E24AEABD2B1CDBAB002EC92A /* Core */,
+				E24AEABE2B1CDBAF002EC92A /* Model */,
 				E2C68A532B1BA89200926D87 /* Assets.xcassets */,
 				E2C68A552B1BA89200926D87 /* Preview Content */,
 			);
-			path = vinance;
+			path = Vinance;
 			sourceTree = "<group>";
 		};
 		E2C68A552B1BA89200926D87 /* Preview Content */ = {
@@ -110,29 +236,72 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		E2C68A5F2B1BA89200926D87 /* vinanceTests */ = {
+		E2C68A5F2B1BA89200926D87 /* VinanceTests */ = {
 			isa = PBXGroup;
 			children = (
-				E2C68A602B1BA89200926D87 /* vinanceTests.swift */,
+				E2C68A602B1BA89200926D87 /* VinanceTests.swift */,
 			);
-			path = vinanceTests;
+			path = VinanceTests;
 			sourceTree = "<group>";
 		};
-		E2C68A692B1BA89200926D87 /* vinanceUITests */ = {
+		E2C68A692B1BA89200926D87 /* VinanceUITests */ = {
 			isa = PBXGroup;
 			children = (
-				E2C68A6A2B1BA89200926D87 /* vinanceUITests.swift */,
-				E2C68A6C2B1BA89200926D87 /* vinanceUITestsLaunchTests.swift */,
+				E2C68A6A2B1BA89200926D87 /* VinanceUITests.swift */,
+				E2C68A6C2B1BA89200926D87 /* VinanceUITestsLaunchTests.swift */,
 			);
-			path = vinanceUITests;
+			path = VinanceUITests;
+			sourceTree = "<group>";
+		};
+		E2CA96422B1DD74B00F6FA2F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E24AEAC22B1CDCCA002EC92A /* LoginView.swift */,
+				E24AEAC62B1CE17F002EC92A /* RegistrationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E2CA96442B1DD75C00F6FA2F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E2CA96452B1DD78700F6FA2F /* AuthViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E2CA96472B1E1F7500F6FA2F /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				E2CA96482B1E1F8A00F6FA2F /* LoginRequest.swift */,
+				E293932C2B54172E0002EA80 /* RegisterRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		E2CA964A2B1E1FBF00F6FA2F /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				E2CA964B2B1E1FCD00F6FA2F /* CustomError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		E2CA964D2B1E1FFA00F6FA2F /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				E2CA964E2B1E200400F6FA2F /* LoginResponse.swift */,
+				E293932E2B5417D60002EA80 /* RegisterResponse.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E2C68A4B2B1BA89100926D87 /* vinance */ = {
+		E2C68A4B2B1BA89100926D87 /* Vinance */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E2C68A702B1BA89200926D87 /* Build configuration list for PBXNativeTarget "vinance" */;
+			buildConfigurationList = E2C68A702B1BA89200926D87 /* Build configuration list for PBXNativeTarget "Vinance" */;
 			buildPhases = (
 				E2C68A482B1BA89100926D87 /* Sources */,
 				E2C68A492B1BA89100926D87 /* Frameworks */,
@@ -142,14 +311,14 @@
 			);
 			dependencies = (
 			);
-			name = vinance;
+			name = Vinance;
 			productName = vinance;
-			productReference = E2C68A4C2B1BA89100926D87 /* vinance.app */;
+			productReference = E2C68A4C2B1BA89100926D87 /* Vinance.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E2C68A5B2B1BA89200926D87 /* vinanceTests */ = {
+		E2C68A5B2B1BA89200926D87 /* VinanceTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E2C68A732B1BA89200926D87 /* Build configuration list for PBXNativeTarget "vinanceTests" */;
+			buildConfigurationList = E2C68A732B1BA89200926D87 /* Build configuration list for PBXNativeTarget "VinanceTests" */;
 			buildPhases = (
 				E2C68A582B1BA89200926D87 /* Sources */,
 				E2C68A592B1BA89200926D87 /* Frameworks */,
@@ -160,14 +329,14 @@
 			dependencies = (
 				E2C68A5E2B1BA89200926D87 /* PBXTargetDependency */,
 			);
-			name = vinanceTests;
+			name = VinanceTests;
 			productName = vinanceTests;
-			productReference = E2C68A5C2B1BA89200926D87 /* vinanceTests.xctest */;
+			productReference = E2C68A5C2B1BA89200926D87 /* VinanceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E2C68A652B1BA89200926D87 /* vinanceUITests */ = {
+		E2C68A652B1BA89200926D87 /* VinanceUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E2C68A762B1BA89200926D87 /* Build configuration list for PBXNativeTarget "vinanceUITests" */;
+			buildConfigurationList = E2C68A762B1BA89200926D87 /* Build configuration list for PBXNativeTarget "VinanceUITests" */;
 			buildPhases = (
 				E2C68A622B1BA89200926D87 /* Sources */,
 				E2C68A632B1BA89200926D87 /* Frameworks */,
@@ -178,9 +347,9 @@
 			dependencies = (
 				E2C68A682B1BA89200926D87 /* PBXTargetDependency */,
 			);
-			name = vinanceUITests;
+			name = VinanceUITests;
 			productName = vinanceUITests;
-			productReference = E2C68A662B1BA89200926D87 /* vinanceUITests.xctest */;
+			productReference = E2C68A662B1BA89200926D87 /* VinanceUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -206,7 +375,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E2C68A472B1BA89100926D87 /* Build configuration list for PBXProject "vinance" */;
+			buildConfigurationList = E2C68A472B1BA89100926D87 /* Build configuration list for PBXProject "Vinance" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -219,9 +388,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E2C68A4B2B1BA89100926D87 /* vinance */,
-				E2C68A5B2B1BA89200926D87 /* vinanceTests */,
-				E2C68A652B1BA89200926D87 /* vinanceUITests */,
+				E2C68A4B2B1BA89100926D87 /* Vinance */,
+				E2C68A5B2B1BA89200926D87 /* VinanceTests */,
+				E2C68A652B1BA89200926D87 /* VinanceUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -257,8 +426,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E24AEAC32B1CDCCA002EC92A /* LoginView.swift in Sources */,
+				E286D1F42D9CC80E00CE5281 /* AuthModels.swift in Sources */,
+				E24AEAC52B1CDE39002EC92A /* InputView.swift in Sources */,
+				E2CA964F2B1E200400F6FA2F /* LoginResponse.swift in Sources */,
 				E2C68A522B1BA89100926D87 /* ContentView.swift in Sources */,
-				E2C68A502B1BA89100926D87 /* vinanceApp.swift in Sources */,
+				E286D1F02D9CC74B00CE5281 /* NetworkService.swift in Sources */,
+				E2CA96492B1E1F8A00F6FA2F /* LoginRequest.swift in Sources */,
+				E2C68A502B1BA89100926D87 /* VinanceApp.swift in Sources */,
+				E293932D2B54172E0002EA80 /* RegisterRequest.swift in Sources */,
+				E286D1F62D9CC8EE00CE5281 /* HomeView.swift in Sources */,
+				E2CA96412B1DD34A00F6FA2F /* User.swift in Sources */,
+				E2CA963D2B1DCFE500F6FA2F /* ProfileView.swift in Sources */,
+				E286D1EE2D9CC72600CE5281 /* APIConfig.swift in Sources */,
+				E2CA964C2B1E1FCD00F6FA2F /* CustomError.swift in Sources */,
+				E24AEAC72B1CE17F002EC92A /* RegistrationView.swift in Sources */,
+				E293932F2B5417D60002EA80 /* RegisterResponse.swift in Sources */,
+				E2CA963F2B1DD18C00F6FA2F /* SettingsRowView.swift in Sources */,
+				E2CA96462B1DD78700F6FA2F /* AuthViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +451,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2C68A612B1BA89200926D87 /* vinanceTests.swift in Sources */,
+				E2C68A612B1BA89200926D87 /* VinanceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,8 +459,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2C68A6B2B1BA89200926D87 /* vinanceUITests.swift in Sources */,
-				E2C68A6D2B1BA89200926D87 /* vinanceUITestsLaunchTests.swift in Sources */,
+				E2C68A6B2B1BA89200926D87 /* VinanceUITests.swift in Sources */,
+				E2C68A6D2B1BA89200926D87 /* VinanceUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,12 +469,12 @@
 /* Begin PBXTargetDependency section */
 		E2C68A5E2B1BA89200926D87 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E2C68A4B2B1BA89100926D87 /* vinance */;
+			target = E2C68A4B2B1BA89100926D87 /* Vinance */;
 			targetProxy = E2C68A5D2B1BA89200926D87 /* PBXContainerItemProxy */;
 		};
 		E2C68A682B1BA89200926D87 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E2C68A4B2B1BA89100926D87 /* vinance */;
+			target = E2C68A4B2B1BA89100926D87 /* Vinance */;
 			targetProxy = E2C68A672B1BA89200926D87 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -483,7 +668,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vinance.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/vinance";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vinance.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Vinance";
 			};
 			name = Debug;
 		};
@@ -503,7 +688,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vinance.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/vinance";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vinance.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Vinance";
 			};
 			name = Release;
 		};
@@ -546,7 +731,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E2C68A472B1BA89100926D87 /* Build configuration list for PBXProject "vinance" */ = {
+		E2C68A472B1BA89100926D87 /* Build configuration list for PBXProject "Vinance" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E2C68A6E2B1BA89200926D87 /* Debug */,
@@ -555,7 +740,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E2C68A702B1BA89200926D87 /* Build configuration list for PBXNativeTarget "vinance" */ = {
+		E2C68A702B1BA89200926D87 /* Build configuration list for PBXNativeTarget "Vinance" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E2C68A712B1BA89200926D87 /* Debug */,
@@ -564,7 +749,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E2C68A732B1BA89200926D87 /* Build configuration list for PBXNativeTarget "vinanceTests" */ = {
+		E2C68A732B1BA89200926D87 /* Build configuration list for PBXNativeTarget "VinanceTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E2C68A742B1BA89200926D87 /* Debug */,
@@ -573,7 +758,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E2C68A762B1BA89200926D87 /* Build configuration list for PBXNativeTarget "vinanceUITests" */ = {
+		E2C68A762B1BA89200926D87 /* Build configuration list for PBXNativeTarget "VinanceUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E2C68A772B1BA89200926D87 /* Debug */,

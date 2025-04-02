@@ -1,13 +1,13 @@
 //
-//  vinanceUITestsLaunchTests.swift
-//  vinanceUITests
+//  VinanceUITestsLaunchTests.swift
+//  VinanceUITests
 //
 //  Created by Vincent Deli on 03/12/23.
 //
 
 import XCTest
 
-final class vinanceUITestsLaunchTests: XCTestCase {
+final class VinanceUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

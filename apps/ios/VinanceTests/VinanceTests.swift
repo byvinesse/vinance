@@ -1,14 +1,14 @@
 //
-//  vinanceTests.swift
-//  vinanceTests
+//  VinanceTests.swift
+//  VinanceTests
 //
 //  Created by Vincent Deli on 03/12/23.
 //
 
 import XCTest
-@testable import vinance
+@testable import Vinance
 
-final class vinanceTests: XCTestCase {
+final class VinanceTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
