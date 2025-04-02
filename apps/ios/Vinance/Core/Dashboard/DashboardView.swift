@@ -1,5 +1,5 @@
 //
-//  HomeView.swift
+//  DashboardView.swift
 //  Vinance
 //
 //  Created by Vincent Deli on 02/04/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct DashboardView: View {
     var body: some View {
         NavigationStack {
             Text("Vinance Dashboard")
@@ -18,8 +18,8 @@ struct HomeView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
+struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        DashboardView()
     }
 }
