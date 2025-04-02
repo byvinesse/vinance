@@ -13,7 +13,6 @@
 		E286D1EE2D9CC72600CE5281 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D1ED2D9CC72600CE5281 /* APIConfig.swift */; };
 		E286D1F02D9CC74B00CE5281 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D1EF2D9CC74B00CE5281 /* NetworkService.swift */; };
 		E286D1F42D9CC80E00CE5281 /* AuthModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D1F32D9CC80E00CE5281 /* AuthModels.swift */; };
-		E286D1F62D9CC8EE00CE5281 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D1F52D9CC8EE00CE5281 /* NavigationView.swift */; };
 		E286D1F92D9CCD9700CE5281 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D1F82D9CCD9700CE5281 /* DashboardView.swift */; };
 		E286D1FC2D9CCE5D00CE5281 /* PlanningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D1FB2D9CCE5D00CE5281 /* PlanningView.swift */; };
 		E286D1FF2D9CCEB800CE5281 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D1FE2D9CCEB800CE5281 /* StatisticsView.swift */; };
@@ -21,6 +20,7 @@
 		E286D2052D9CCF2700CE5281 /* AddNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D2042D9CCF2700CE5281 /* AddNewView.swift */; };
 		E293932D2B54172E0002EA80 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E293932C2B54172E0002EA80 /* RegisterRequest.swift */; };
 		E293932F2B5417D60002EA80 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E293932E2B5417D60002EA80 /* RegisterResponse.swift */; };
+		E295C3102D9CD46E005F3C2E /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295C30F2D9CD46E005F3C2E /* NavigationView.swift */; };
 		E2C68A502B1BA89100926D87 /* VinanceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A4F2B1BA89100926D87 /* VinanceApp.swift */; };
 		E2C68A522B1BA89100926D87 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A512B1BA89100926D87 /* ContentView.swift */; };
 		E2C68A542B1BA89200926D87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C68A532B1BA89200926D87 /* Assets.xcassets */; };
@@ -61,7 +61,6 @@
 		E286D1ED2D9CC72600CE5281 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
 		E286D1EF2D9CC74B00CE5281 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E286D1F32D9CC80E00CE5281 /* AuthModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModels.swift; sourceTree = "<group>"; };
-		E286D1F52D9CC8EE00CE5281 /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationView.swift; path = Vinance/Core/Authentication/Model/NavigationView.swift; sourceTree = SOURCE_ROOT; };
 		E286D1F82D9CCD9700CE5281 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		E286D1FB2D9CCE5D00CE5281 /* PlanningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningView.swift; sourceTree = "<group>"; };
 		E286D1FE2D9CCEB800CE5281 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
@@ -69,6 +68,7 @@
 		E286D2042D9CCF2700CE5281 /* AddNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewView.swift; sourceTree = "<group>"; };
 		E293932C2B54172E0002EA80 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		E293932E2B5417D60002EA80 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
+		E295C30F2D9CD46E005F3C2E /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		E2C68A4C2B1BA89100926D87 /* Vinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C68A4F2B1BA89100926D87 /* VinanceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VinanceApp.swift; sourceTree = "<group>"; };
 		E2C68A512B1BA89100926D87 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -133,12 +133,12 @@
 		E24AEABD2B1CDBAB002EC92A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E295C30E2D9CD462005F3C2E /* Navigation */,
 				E286D2032D9CCF1C00CE5281 /* AddNew */,
 				E286D2002D9CCED900CE5281 /* More */,
 				E286D1FD2D9CCEA700CE5281 /* Statistics */,
 				E286D1FA2D9CCE4E00CE5281 /* Planning */,
 				E286D1F72D9CCD8500CE5281 /* Dashboard */,
-				E286D1EA2D9CBDF000CE5281 /* Navigation */,
 				E286D1EC2D9CC71500CE5281 /* Network */,
 				E24AEAC02B1CDC56002EC92A /* Authentication */,
 				E24AEAC12B1CDC5C002EC92A /* Profile */,
@@ -182,15 +182,6 @@
 				E2CA963C2B1DCFE500F6FA2F /* ProfileView.swift */,
 			);
 			path = Profile;
-			sourceTree = "<group>";
-		};
-		E286D1EA2D9CBDF000CE5281 /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-				E286D1F52D9CC8EE00CE5281 /* NavigationView.swift */,
-			);
-			name = Navigation;
-			path = Authentication/Navigation;
 			sourceTree = "<group>";
 		};
 		E286D1EC2D9CC71500CE5281 /* Network */ = {
@@ -248,6 +239,14 @@
 				E286D2042D9CCF2700CE5281 /* AddNewView.swift */,
 			);
 			path = AddNew;
+			sourceTree = "<group>";
+		};
+		E295C30E2D9CD462005F3C2E /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				E295C30F2D9CD46E005F3C2E /* NavigationView.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		E2C68A432B1BA89100926D87 = {
@@ -493,7 +492,7 @@
 				E286D2022D9CCEE300CE5281 /* MoreView.swift in Sources */,
 				E293932D2B54172E0002EA80 /* RegisterRequest.swift in Sources */,
 				E286D1FF2D9CCEB800CE5281 /* StatisticsView.swift in Sources */,
-				E286D1F62D9CC8EE00CE5281 /* NavigationView.swift in Sources */,
+				E295C3102D9CD46E005F3C2E /* NavigationView.swift in Sources */,
 				E286D1FC2D9CCE5D00CE5281 /* PlanningView.swift in Sources */,
 				E2CA96412B1DD34A00F6FA2F /* User.swift in Sources */,
 				E2CA963D2B1DCFE500F6FA2F /* ProfileView.swift in Sources */,
