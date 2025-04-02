@@ -6,92 +6,160 @@
 //
 
 import Foundation
+import SwiftUI
+
+// To use the networking components, you'll need to add these imports:
+// The actual import statements will depend on your project structure.
+// Here are a few options:
+
+// If network components are in the same module/target:
+// No additional imports needed
+
+// If network components are in a separate module/target named "Network":
+// import Network 
+
+// If you're using Swift Package Manager with a package named "NetworkKit":
+// import NetworkKit
+
+enum AuthError: LocalizedError {
+    case invalidEmail
+    case invalidPassword
+    case passwordMismatch
+    case invalidURL
+    case networkError(Error)
+    case decodingError(Error)
+    case unknown
+    
+    var errorDescription: String? {
+        switch self {
+        case .invalidEmail:
+            return "Please enter a valid email address."
+        case .invalidPassword:
+            return "Password must be at least 8 characters long."
+        case .passwordMismatch:
+            return "Passwords do not match."
+        case .invalidURL:
+            return "Invalid URL."
+        case .networkError(let error):
+            return "Network error: \(error.localizedDescription)"
+        case .decodingError(let error):
+            return "Failed to process response: \(error.localizedDescription)"
+        case .unknown:
+            return "An unknown error occurred."
+        }
+    }
+}
 
 @MainActor
 class AuthViewModel: ObservableObject {
     @Published var userSession: String?
     @Published var currentUser: User?
     
-    init() {
-        
+    private let userDefaults = UserDefaults.standard
+    private let userSessionKey = "userSession"
+    private let networkService: NetworkServiceProtocol
+    
+    init(networkService: NetworkServiceProtocol = NetworkService()) {
+        self.networkService = networkService
+        self.userSession = userDefaults.string(forKey: userSessionKey)
+        if userSession != nil {
+            Task {
+                try? await fetchCurrentUser()
+            }
+        }
     }
     
     func login(withEmail email: String, password: String) async throws {
-        guard let url = URL(string: "http://localhost:8080/auth/v1/login") else {
-            throw CustomError.invalidURL
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        
         do {
-            let requestBody = try JSONEncoder().encode(LoginRequest(email: email, password: password))
-            request.httpBody = requestBody
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            
-            let (data, _) = try await URLSession.shared.data(for: request)
-            
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            
-            let response = try decoder.decode(LoginResponse.self, from: data)
+            let loginRequest = LoginRequest(email: email, password: password)
+            let response: LoginResponse = try await networkService.request(
+                endpoint: "/auth/v1/login",
+                method: .post,
+                body: loginRequest,
+                headers: nil
+            )
             
             self.userSession = response.data.accessToken
+            userDefaults.set(self.userSession, forKey: userSessionKey)
+            try await fetchCurrentUser()
+        } catch let error as NetworkError {
+            switch error {
+            case .invalidURL:
+                throw AuthError.invalidURL
+            case .decodingFailed(let decodingError):
+                throw AuthError.decodingError(decodingError)
+            case .requestFailed, .unknown:
+                throw AuthError.networkError(error)
+            }
         } catch {
-            print(error)
+            throw AuthError.unknown
         }
     }
     
     func register(withEmail email: String, password: String, confirmPassword: String) async throws -> Bool {
-        if !validateRegisterPayload(email: email, password: password, confirmPassword: confirmPassword) {
-            throw CustomError.invalidData
-        }
-        
-        guard let url = URL(string: "http://localhost:8080/auth/v1/register") else {
-            throw CustomError.invalidURL
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        
         do {
-            let requestBody = try JSONEncoder().encode(RegisterRequest(email: email, password: password))
-            request.httpBody = requestBody
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            try validateRegisterInput(email: email, password: password, confirmPassword: confirmPassword)
             
-            let (data, _) = try await URLSession.shared.data(for: request)
+            let registerRequest = RegisterRequest(email: email, password: password)
+            let response: RegisterResponse = try await networkService.request(
+                endpoint: "/auth/v1/register",
+                method: .post,
+                body: registerRequest,
+                headers: nil
+            )
             
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            
-            let response = try decoder.decode(RegisterResponse.self, from: data)
             return response.data
+        } catch let error as NetworkError {
+            switch error {
+            case .invalidURL:
+                throw AuthError.invalidURL
+            case .decodingFailed(let decodingError):
+                throw AuthError.decodingError(decodingError)
+            case .requestFailed, .unknown:
+                throw AuthError.networkError(error)
+            }
+        } catch let error as AuthError {
+            throw error
         } catch {
-            print(error)
+            throw AuthError.unknown
         }
-        
-        print("Error: Registration failed.")
-        return false
     }
     
-    func validateRegisterPayload(email: String, password: String, confirmPassword: String) -> Bool {
+    func signOut() {
+        self.userSession = nil
+        self.currentUser = nil
+        userDefaults.removeObject(forKey: userSessionKey)
+    }
+    
+    private func fetchCurrentUser() async throws {
+        guard let token = userSession else { 
+            throw AuthError.unknown
+        }
+        
+        // Example of how to use the authenticated request
+        // Implement this based on your API
+        // let user: UserResponse = try await networkService.requestWithAuth(
+        //    endpoint: "/auth/v1/user",
+        //    method: .get,
+        //    body: nil,
+        //    token: token
+        // )
+        // self.currentUser = user.data
+    }
+    
+    private func validateRegisterInput(email: String, password: String, confirmPassword: String) throws {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        guard email.range(of: emailRegex, options: .regularExpression) != nil, !email.isEmpty else {
-            print("Error: Invalid email format.")
-            return false
+        guard !email.isEmpty, email.range(of: emailRegex, options: .regularExpression) != nil else {
+            throw AuthError.invalidEmail
         }
         
         guard !password.isEmpty, password.count >= 8 else {
-            print("Error: Invalid password format.")
-            return false
+            throw AuthError.invalidPassword
         }
         
         guard confirmPassword == password else {
-            print("Error: Password does not match.")
-            return false
+            throw AuthError.passwordMismatch
         }
-        
-        return true
     }
 }
 

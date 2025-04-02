@@ -10,6 +10,10 @@
 		E24AEAC32B1CDCCA002EC92A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24AEAC22B1CDCCA002EC92A /* LoginView.swift */; };
 		E24AEAC52B1CDE39002EC92A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24AEAC42B1CDE39002EC92A /* InputView.swift */; };
 		E24AEAC72B1CE17F002EC92A /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24AEAC62B1CE17F002EC92A /* RegistrationView.swift */; };
+		E286D1EE2D9CC72600CE5281 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D1ED2D9CC72600CE5281 /* APIConfig.swift */; };
+		E286D1F02D9CC74B00CE5281 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D1EF2D9CC74B00CE5281 /* NetworkService.swift */; };
+		E286D1F42D9CC80E00CE5281 /* AuthModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D1F32D9CC80E00CE5281 /* AuthModels.swift */; };
+		E286D1F62D9CC8EE00CE5281 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D1F52D9CC8EE00CE5281 /* HomeView.swift */; };
 		E293932D2B54172E0002EA80 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E293932C2B54172E0002EA80 /* RegisterRequest.swift */; };
 		E293932F2B5417D60002EA80 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E293932E2B5417D60002EA80 /* RegisterResponse.swift */; };
 		E2C68A502B1BA89100926D87 /* VinanceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A4F2B1BA89100926D87 /* VinanceApp.swift */; };
@@ -49,6 +53,10 @@
 		E24AEAC22B1CDCCA002EC92A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E24AEAC42B1CDE39002EC92A /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		E24AEAC62B1CE17F002EC92A /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		E286D1ED2D9CC72600CE5281 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
+		E286D1EF2D9CC74B00CE5281 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E286D1F32D9CC80E00CE5281 /* AuthModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModels.swift; sourceTree = "<group>"; };
+		E286D1F52D9CC8EE00CE5281 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = Vinance/Core/Authentication/Model/HomeView.swift; sourceTree = SOURCE_ROOT; };
 		E293932C2B54172E0002EA80 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		E293932E2B5417D60002EA80 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		E2C68A4C2B1BA89100926D87 /* Vinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +123,8 @@
 		E24AEABD2B1CDBAB002EC92A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E286D1EA2D9CBDF000CE5281 /* Home */,
+				E286D1EC2D9CC71500CE5281 /* Network */,
 				E24AEAC02B1CDC56002EC92A /* Authentication */,
 				E24AEAC12B1CDC5C002EC92A /* Profile */,
 				E24AEABF2B1CDC0C002EC92A /* Root */,
@@ -144,6 +154,7 @@
 		E24AEAC02B1CDC56002EC92A /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				E286D1F22D9CC7F100CE5281 /* Model */,
 				E2CA96422B1DD74B00F6FA2F /* View */,
 				E2CA96442B1DD75C00F6FA2F /* ViewModel */,
 			);
@@ -156,6 +167,32 @@
 				E2CA963C2B1DCFE500F6FA2F /* ProfileView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		E286D1EA2D9CBDF000CE5281 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E286D1F52D9CC8EE00CE5281 /* HomeView.swift */,
+			);
+			name = Home;
+			path = Authentication/Home;
+			sourceTree = "<group>";
+		};
+		E286D1EC2D9CC71500CE5281 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E286D1ED2D9CC72600CE5281 /* APIConfig.swift */,
+				E286D1EF2D9CC74B00CE5281 /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E286D1F22D9CC7F100CE5281 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E286D1F32D9CC80E00CE5281 /* AuthModels.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E2C68A432B1BA89100926D87 = {
@@ -390,14 +427,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E24AEAC32B1CDCCA002EC92A /* LoginView.swift in Sources */,
+				E286D1F42D9CC80E00CE5281 /* AuthModels.swift in Sources */,
 				E24AEAC52B1CDE39002EC92A /* InputView.swift in Sources */,
 				E2CA964F2B1E200400F6FA2F /* LoginResponse.swift in Sources */,
 				E2C68A522B1BA89100926D87 /* ContentView.swift in Sources */,
+				E286D1F02D9CC74B00CE5281 /* NetworkService.swift in Sources */,
 				E2CA96492B1E1F8A00F6FA2F /* LoginRequest.swift in Sources */,
 				E2C68A502B1BA89100926D87 /* VinanceApp.swift in Sources */,
 				E293932D2B54172E0002EA80 /* RegisterRequest.swift in Sources */,
+				E286D1F62D9CC8EE00CE5281 /* HomeView.swift in Sources */,
 				E2CA96412B1DD34A00F6FA2F /* User.swift in Sources */,
 				E2CA963D2B1DCFE500F6FA2F /* ProfileView.swift in Sources */,
+				E286D1EE2D9CC72600CE5281 /* APIConfig.swift in Sources */,
 				E2CA964C2B1E1FCD00F6FA2F /* CustomError.swift in Sources */,
 				E24AEAC72B1CE17F002EC92A /* RegistrationView.swift in Sources */,
 				E293932F2B5417D60002EA80 /* RegisterResponse.swift in Sources */,
