@@ -33,7 +33,7 @@ func TestUser_InsertOne(t *testing.T) {
 		PasswordHash: "hashed_password",
 		Username:     "testuser",
 		PhoneNumber:  "1234567890",
-		Gender:       "male",
+		Gender:       "M",
 		DateOfBirth: func() *time.Time {
 			time := time.Date(1990, 1, 1, 0, 0, 0, 0, time.UTC)
 			return &time
@@ -93,7 +93,7 @@ func TestUser_InsertOne(t *testing.T) {
 			PasswordHash: "hashed_password",
 			Username:     "nodob",
 			PhoneNumber:  "9876543210",
-			Gender:       "female",
+			Gender:       "F",
 			DateOfBirth:  nil, // No date of birth
 			CreatedAt:    now,
 			UpdatedAt:    now,
@@ -146,7 +146,7 @@ func TestUser_FindOneByEmail(t *testing.T) {
 	t.Run("Success", func(t *testing.T) {
 		// Setup expected query
 		rows := sqlmock.NewRows([]string{"id", "email", "password_hash", "username", "phone_number", "date_of_birth", "gender", "created_at", "updated_at"}).
-			AddRow("1", email, "hashed_password", "testuser", "1234567890", dob, "male", now, now)
+			AddRow("1", email, "hashed_password", "testuser", "1234567890", dob, "M", now, now)
 
 		mock.ExpectQuery("SELECT \\* FROM users").
 			WithArgs(email).
@@ -172,7 +172,7 @@ func TestUser_FindOneByEmail(t *testing.T) {
 	t.Run("Success With Null DateOfBirth", func(t *testing.T) {
 		// Setup expected query with null date_of_birth
 		rows := sqlmock.NewRows([]string{"id", "email", "password_hash", "username", "phone_number", "date_of_birth", "gender", "created_at", "updated_at"}).
-			AddRow("2", email, "hashed_password", "testuser", "1234567890", nil, "male", now, now)
+			AddRow("2", email, "hashed_password", "testuser", "1234567890", nil, "M", now, now)
 
 		mock.ExpectQuery("SELECT \\* FROM users").
 			WithArgs(email).

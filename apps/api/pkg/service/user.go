@@ -74,3 +74,22 @@ func toLoginResponse(accessToken string, accessTokenExpiresAt time.Time) *model.
 		AccessTokenExpiresAt: accessTokenExpiresAt,
 	}
 }
+
+func (s *UserService) GetProfile(ctx context.Context, email string) (*model.GetProfileResponse, error) {
+	data, err := s.userRepo.FindOneByEmail(ctx, email)
+	if err != nil {
+		return nil, err
+	}
+
+	return toGetProfileResponse(data), nil
+}
+
+func toGetProfileResponse(response *entity.User) *model.GetProfileResponse {
+	return &model.GetProfileResponse{
+		Email:       response.Email,
+		Username:    response.Username,
+		PhoneNumber: response.PhoneNumber,
+		Gender:      response.Gender,
+		DateOfBirth: response.DateOfBirth.UnixMilli(),
+	}
+}

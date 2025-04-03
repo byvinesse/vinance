@@ -56,7 +56,7 @@ func TestHandler_Register(t *testing.T) {
 		Password:    "password123",
 		Username:    "testuser",
 		PhoneNumber: "1234567890",
-		Gender:      "male",
+		Gender:      "M",
 		DateOfBirth: func() *time.Time {
 			t := time.Date(1990, 1, 1, 0, 0, 0, 0, time.UTC)
 			return &t

@@ -71,4 +71,11 @@ func initRoutes(e *echo.Echo, app *application.App, h *server.Handler) {
 	// Accounts V1
 	accountsV1Route := accountsRoute.Group("/v1")
 	accountsV1Route.POST("/_create", h.CreateAccount, withAuth)
+
+	// Users
+	usersRoute := e.Group("/users")
+
+	// Users V1
+	usersV1Route := usersRoute.Group("/v1")
+	usersV1Route.GET("/profile", h.GetProfile, withAuth)
 }

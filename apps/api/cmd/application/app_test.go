@@ -26,6 +26,14 @@ func (m *MockUserService) Login(ctx context.Context, request *model.LoginRequest
 	return args.Get(0).(*model.LoginResponse), args.Error(1)
 }
 
+func (m *MockUserService) GetProfile(ctx context.Context, email string) (*model.GetProfileResponse, error) {
+	args := m.Called(ctx, email)
+	if args.Get(0) == nil {
+		return nil, args.Error(1)
+	}
+	return args.Get(0).(*model.GetProfileResponse), args.Error(1)
+}
+
 type MockAccountService struct {
 	mock.Mock
 }

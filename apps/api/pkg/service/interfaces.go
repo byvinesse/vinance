@@ -9,6 +9,7 @@ import (
 type IUserService interface {
 	Register(ctx context.Context, request *model.RegisterRequest) (bool, error)
 	Login(ctx context.Context, request *model.LoginRequest) (*model.LoginResponse, error)
+	GetProfile(ctx context.Context, email string) (*model.GetProfileResponse, error)
 }
 
 type IAccountService interface {
