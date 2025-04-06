@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
     var body: some View {
+        let currentUser = authViewModel.currentUser
+        
         List {
             Section {
                 HStack {
-                    Text(User.MOCK_USER.initials)
+                    Text(currentUser?.initials ?? "UU")
                         .font(.title)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
@@ -21,46 +25,48 @@ struct ProfileView: View {
                     .clipShape(Circle())
                     
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(User.MOCK_USER.username)
+                        Text(currentUser?.username ?? "User")
                             .font(.subheadline)
                             .fontWeight(.semibold)
                             .padding(.top, 4)
                         
-                        Text(User.MOCK_USER.email)
+                        Text(currentUser?.email ?? "Email")
                             .font(.footnote)
                             .foregroundColor(.gray)
                     }
                 }
             }
             
-            Section("General") {
-                HStack {
-                    SettingsRowView(imageName: "gear", title: "Version", tintColor: Color(.systemGray))
-                    
-                    Spacer()
-                    
-                    Text("1.0.0")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                }
-            }
+//            Section("General") {
+//                HStack {
+//                    SettingsRowView(imageName: "gear", title: "Version", tintColor: Color(.systemGray))
+//
+//                    Spacer()
+//
+//                    Text("1.0.0")
+//                        .font(.subheadline)
+//                        .foregroundColor(.gray)
+//                }
+//            }
             
-            Section("Account") {
+            Section("General") {
                 Button {
-                    print("Sign out..")
+                    Task {
+                        authViewModel.signOut()
+                    }
                 } label: {
                     SettingsRowView(imageName: "arrow.left.circle.fill",
                                     title: "Sign Out",
                                     tintColor: .red)
                 }
                 
-                Button {
-                    print("Delete account..")
-                } label: {
-                    SettingsRowView(imageName: "xmark.circle.fill",
-                                    title: "Delete Account",
-                                    tintColor: .red)
-                }
+//                Button {
+//                    print("Delete account..")
+//                } label: {
+//                    SettingsRowView(imageName: "xmark.circle.fill",
+//                                    title: "Delete Account",
+//                                    tintColor: .red)
+//                }
             }
         }
     }

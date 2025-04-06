@@ -21,6 +21,7 @@
 		E293932D2B54172E0002EA80 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E293932C2B54172E0002EA80 /* RegisterRequest.swift */; };
 		E293932F2B5417D60002EA80 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E293932E2B5417D60002EA80 /* RegisterResponse.swift */; };
 		E295C3102D9CD46E005F3C2E /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295C30F2D9CD46E005F3C2E /* NavigationView.swift */; };
+		E295C3122DA27FE4005F3C2E /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295C3112DA27FE4005F3C2E /* UserResponse.swift */; };
 		E2C68A502B1BA89100926D87 /* VinanceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A4F2B1BA89100926D87 /* VinanceApp.swift */; };
 		E2C68A522B1BA89100926D87 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A512B1BA89100926D87 /* ContentView.swift */; };
 		E2C68A542B1BA89200926D87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C68A532B1BA89200926D87 /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		E293932C2B54172E0002EA80 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		E293932E2B5417D60002EA80 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		E295C30F2D9CD46E005F3C2E /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
+		E295C3112DA27FE4005F3C2E /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		E2C68A4C2B1BA89100926D87 /* Vinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C68A4F2B1BA89100926D87 /* VinanceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VinanceApp.swift; sourceTree = "<group>"; };
 		E2C68A512B1BA89100926D87 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 			children = (
 				E2CA964E2B1E200400F6FA2F /* LoginResponse.swift */,
 				E293932E2B5417D60002EA80 /* RegisterResponse.swift */,
+				E295C3112DA27FE4005F3C2E /* UserResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				E286D1F92D9CCD9700CE5281 /* DashboardView.swift in Sources */,
 				E286D2022D9CCEE300CE5281 /* MoreView.swift in Sources */,
 				E293932D2B54172E0002EA80 /* RegisterRequest.swift in Sources */,
+				E295C3122DA27FE4005F3C2E /* UserResponse.swift in Sources */,
 				E286D1FF2D9CCEB800CE5281 /* StatisticsView.swift in Sources */,
 				E295C3102D9CD46E005F3C2E /* NavigationView.swift in Sources */,
 				E286D1FC2D9CCE5D00CE5281 /* PlanningView.swift in Sources */,

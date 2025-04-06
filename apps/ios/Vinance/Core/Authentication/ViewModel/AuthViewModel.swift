@@ -59,15 +59,15 @@ class AuthViewModel: ObservableObject {
     private let userSessionKey = "userSession"
     private let networkService: NetworkServiceProtocol
     
-    init(networkService: NetworkServiceProtocol = NetworkService()) {
-        self.networkService = networkService
-        self.userSession = userDefaults.string(forKey: userSessionKey)
-        if userSession != nil {
-            Task {
-                try? await fetchCurrentUser()
-            }
-        }
-    }
+   init(networkService: NetworkServiceProtocol = NetworkService()) {
+       self.networkService = networkService
+       self.userSession = userDefaults.string(forKey: userSessionKey)
+       if userSession != nil {
+           Task {
+               try? await fetchCurrentUser()
+           }
+       }
+   }
     
     func login(withEmail email: String, password: String) async throws {
         do {
@@ -132,19 +132,17 @@ class AuthViewModel: ObservableObject {
     }
     
     private func fetchCurrentUser() async throws {
-        guard let token = userSession else { 
+        guard let token = userSession else {
             throw AuthError.unknown
         }
         
-        // Example of how to use the authenticated request
-        // Implement this based on your API
-        // let user: UserResponse = try await networkService.requestWithAuth(
-        //    endpoint: "/auth/v1/user",
-        //    method: .get,
-        //    body: nil,
-        //    token: token
-        // )
-        // self.currentUser = user.data
+        let user: UserResponse = try await networkService.requestWithAuth(
+            endpoint: "/users/v1/profile",
+            method: .get,
+            body: nil,
+            token: token
+        )
+        self.currentUser = convertUserData(userData: user.data)
     }
     
     private func validateRegisterInput(email: String, password: String, confirmPassword: String) throws {
@@ -160,6 +158,16 @@ class AuthViewModel: ObservableObject {
         guard confirmPassword == password else {
             throw AuthError.passwordMismatch
         }
+    }
+    
+    private func convertUserData(userData: UserData) -> User {
+        return User(
+            username: userData.username,
+            email: userData.email,
+            phoneNumber: userData.phoneNumber,
+            gender: userData.gender,
+            dateOfBirth: userData.dateOfBirth
+        )
     }
 }
 
