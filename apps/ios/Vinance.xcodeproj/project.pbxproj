@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E2175CAC2DABBE9D00884140 /* NetWorthChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CAB2DABBE9D00884140 /* NetWorthChart.swift */; };
+		E2175CB12DABC18500884140 /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CB02DABC18500884140 /* TimePeriod.swift */; };
+		E2175CB32DABC41B00884140 /* SpendingChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CB22DABC41B00884140 /* SpendingChart.swift */; };
+		E2175CB52DABC5FA00884140 /* MainHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CB42DABC5FA00884140 /* MainHeader.swift */; };
+		E2175CB92DABC92100884140 /* BudgetSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CB82DABC92100884140 /* BudgetSummaryView.swift */; };
+		E2175CBB2DABC9A600884140 /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CBA2DABC9A600884140 /* LineChartView.swift */; };
+		E2175CBD2DABCA2800884140 /* BudgetCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CBC2DABCA2800884140 /* BudgetCategoryView.swift */; };
+		E2175CBF2DABCA7300884140 /* UpcomingExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CBE2DABCA7300884140 /* UpcomingExpenseView.swift */; };
+		E2175CC12DABCAC400884140 /* LineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CC02DABCAC400884140 /* LineShape.swift */; };
+		E2175CC32DABCAEC00884140 /* ChartPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CC22DABCAEC00884140 /* ChartPoint.swift */; };
+		E2175CC52DABCB6600884140 /* BudgetCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CC42DABCB6600884140 /* BudgetCategory.swift */; };
+		E2175CC72DABCB7E00884140 /* UpcomingExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CC62DABCB7E00884140 /* UpcomingExpense.swift */; };
+		E2175CCA2DABCBE700884140 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CC92DABCBE700884140 /* Color+Extension.swift */; };
+		E2175CCC2DABCC7100884140 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CCB2DABCC7100884140 /* Transaction.swift */; };
+		E2175CCE2DABCCBE00884140 /* TransactionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CCD2DABCCBE00884140 /* TransactionItemView.swift */; };
 		E24AEAC32B1CDCCA002EC92A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24AEAC22B1CDCCA002EC92A /* LoginView.swift */; };
 		E24AEAC52B1CDE39002EC92A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24AEAC42B1CDE39002EC92A /* InputView.swift */; };
 		E24AEAC72B1CE17F002EC92A /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24AEAC62B1CE17F002EC92A /* RegistrationView.swift */; };
@@ -56,6 +71,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E2175CAB2DABBE9D00884140 /* NetWorthChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorthChart.swift; sourceTree = "<group>"; };
+		E2175CB02DABC18500884140 /* TimePeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriod.swift; sourceTree = "<group>"; };
+		E2175CB22DABC41B00884140 /* SpendingChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingChart.swift; sourceTree = "<group>"; };
+		E2175CB42DABC5FA00884140 /* MainHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeader.swift; sourceTree = "<group>"; };
+		E2175CB82DABC92100884140 /* BudgetSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetSummaryView.swift; sourceTree = "<group>"; };
+		E2175CBA2DABC9A600884140 /* LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
+		E2175CBC2DABCA2800884140 /* BudgetCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCategoryView.swift; sourceTree = "<group>"; };
+		E2175CBE2DABCA7300884140 /* UpcomingExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingExpenseView.swift; sourceTree = "<group>"; };
+		E2175CC02DABCAC400884140 /* LineShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineShape.swift; sourceTree = "<group>"; };
+		E2175CC22DABCAEC00884140 /* ChartPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPoint.swift; sourceTree = "<group>"; };
+		E2175CC42DABCB6600884140 /* BudgetCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCategory.swift; sourceTree = "<group>"; };
+		E2175CC62DABCB7E00884140 /* UpcomingExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingExpense.swift; sourceTree = "<group>"; };
+		E2175CC92DABCBE700884140 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		E2175CCB2DABCC7100884140 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		E2175CCD2DABCCBE00884140 /* TransactionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItemView.swift; sourceTree = "<group>"; };
 		E24AEAC22B1CDCCA002EC92A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E24AEAC42B1CDE39002EC92A /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		E24AEAC62B1CE17F002EC92A /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -115,6 +145,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E2175CAF2DABC17C00884140 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				E2175CB02DABC18500884140 /* TimePeriod.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		E2175CC82DABCBDA00884140 /* Utilies */ = {
+			isa = PBXGroup;
+			children = (
+				E2175CC92DABCBE700884140 /* Color+Extension.swift */,
+			);
+			path = Utilies;
+			sourceTree = "<group>";
+		};
 		E24AEABA2B1CDBA0002EC92A /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +174,15 @@
 			children = (
 				E24AEAC42B1CDE39002EC92A /* InputView.swift */,
 				E2CA963E2B1DD18C00F6FA2F /* SettingsRowView.swift */,
+				E2175CAB2DABBE9D00884140 /* NetWorthChart.swift */,
+				E2175CB22DABC41B00884140 /* SpendingChart.swift */,
+				E2175CB42DABC5FA00884140 /* MainHeader.swift */,
+				E2175CB82DABC92100884140 /* BudgetSummaryView.swift */,
+				E2175CBA2DABC9A600884140 /* LineChartView.swift */,
+				E2175CBC2DABCA2800884140 /* BudgetCategoryView.swift */,
+				E2175CBE2DABCA7300884140 /* UpcomingExpenseView.swift */,
+				E2175CC02DABCAC400884140 /* LineShape.swift */,
+				E2175CCD2DABCCBE00884140 /* TransactionItemView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -135,6 +190,7 @@
 		E24AEABD2B1CDBAB002EC92A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E2175CC82DABCBDA00884140 /* Utilies */,
 				E295C30E2D9CD462005F3C2E /* Navigation */,
 				E286D2032D9CCF1C00CE5281 /* AddNew */,
 				E286D2002D9CCED900CE5281 /* More */,
@@ -152,10 +208,15 @@
 		E24AEABE2B1CDBAF002EC92A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E2175CAF2DABC17C00884140 /* Enums */,
 				E2CA964A2B1E1FBF00F6FA2F /* Error */,
 				E2CA96472B1E1F7500F6FA2F /* Request */,
 				E2CA964D2B1E1FFA00F6FA2F /* Response */,
 				E2CA96402B1DD34A00F6FA2F /* User.swift */,
+				E2175CC22DABCAEC00884140 /* ChartPoint.swift */,
+				E2175CC42DABCB6600884140 /* BudgetCategory.swift */,
+				E2175CC62DABCB7E00884140 /* UpcomingExpense.swift */,
+				E2175CCB2DABCC7100884140 /* Transaction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -488,23 +549,38 @@
 				E24AEAC52B1CDE39002EC92A /* InputView.swift in Sources */,
 				E2CA964F2B1E200400F6FA2F /* LoginResponse.swift in Sources */,
 				E2C68A522B1BA89100926D87 /* ContentView.swift in Sources */,
+				E2175CB92DABC92100884140 /* BudgetSummaryView.swift in Sources */,
+				E2175CC72DABCB7E00884140 /* UpcomingExpense.swift in Sources */,
 				E286D1F02D9CC74B00CE5281 /* NetworkService.swift in Sources */,
 				E2CA96492B1E1F8A00F6FA2F /* LoginRequest.swift in Sources */,
 				E2C68A502B1BA89100926D87 /* VinanceApp.swift in Sources */,
+				E2175CBF2DABCA7300884140 /* UpcomingExpenseView.swift in Sources */,
+				E2175CAC2DABBE9D00884140 /* NetWorthChart.swift in Sources */,
 				E286D1F92D9CCD9700CE5281 /* DashboardView.swift in Sources */,
 				E286D2022D9CCEE300CE5281 /* MoreView.swift in Sources */,
+				E2175CCA2DABCBE700884140 /* Color+Extension.swift in Sources */,
+				E2175CBD2DABCA2800884140 /* BudgetCategoryView.swift in Sources */,
 				E293932D2B54172E0002EA80 /* RegisterRequest.swift in Sources */,
 				E295C3122DA27FE4005F3C2E /* UserResponse.swift in Sources */,
+				E2175CC12DABCAC400884140 /* LineShape.swift in Sources */,
 				E286D1FF2D9CCEB800CE5281 /* StatisticsView.swift in Sources */,
+				E2175CCE2DABCCBE00884140 /* TransactionItemView.swift in Sources */,
 				E295C3102D9CD46E005F3C2E /* NavigationView.swift in Sources */,
 				E286D1FC2D9CCE5D00CE5281 /* PlanningView.swift in Sources */,
 				E2CA96412B1DD34A00F6FA2F /* User.swift in Sources */,
+				E2175CB52DABC5FA00884140 /* MainHeader.swift in Sources */,
 				E2CA963D2B1DCFE500F6FA2F /* ProfileView.swift in Sources */,
 				E286D1EE2D9CC72600CE5281 /* APIConfig.swift in Sources */,
 				E286D2052D9CCF2700CE5281 /* AddNewView.swift in Sources */,
+				E2175CC32DABCAEC00884140 /* ChartPoint.swift in Sources */,
 				E2CA964C2B1E1FCD00F6FA2F /* CustomError.swift in Sources */,
 				E24AEAC72B1CE17F002EC92A /* RegistrationView.swift in Sources */,
+				E2175CCC2DABCC7100884140 /* Transaction.swift in Sources */,
 				E293932F2B5417D60002EA80 /* RegisterResponse.swift in Sources */,
+				E2175CB12DABC18500884140 /* TimePeriod.swift in Sources */,
+				E2175CC52DABCB6600884140 /* BudgetCategory.swift in Sources */,
+				E2175CB32DABC41B00884140 /* SpendingChart.swift in Sources */,
+				E2175CBB2DABC9A600884140 /* LineChartView.swift in Sources */,
 				E2CA963F2B1DD18C00F6FA2F /* SettingsRowView.swift in Sources */,
 				E2CA96462B1DD78700F6FA2F /* AuthViewModel.swift in Sources */,
 			);

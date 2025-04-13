@@ -11,27 +11,61 @@ struct DashboardView: View {
     @State private var selectedView: PortfolioView = .savings
     @State private var isBalanceHidden = false
     @State private var showProfileView = false
+    @State private var selectedTimePeriod: TimePeriod = .week1
     @EnvironmentObject var authViewModel: AuthViewModel
     
-    // Mock data - will be replaced with API calls later
-    let username = "Vincent"
+    // Mock data for dashboard
+    let availableBudget = 650
+    let totalBudget = 1580
+    let underBudget = 12
     
-    let savingsCurrency = "$"
-    let savingsValue = "12.456,67"
+    // Chart data points
+    let spendingChartData: [ChartPoint] = [
+        ChartPoint(value: 500, date: Date().addingTimeInterval(-30 * 24 * 60 * 60)),
+        ChartPoint(value: 650, date: Date().addingTimeInterval(-25 * 24 * 60 * 60)),
+        ChartPoint(value: 600, date: Date().addingTimeInterval(-20 * 24 * 60 * 60)),
+        ChartPoint(value: 700, date: Date().addingTimeInterval(-15 * 24 * 60 * 60)),
+        ChartPoint(value: 750, date: Date().addingTimeInterval(-10 * 24 * 60 * 60)),
+        ChartPoint(value: 900, date: Date().addingTimeInterval(-5 * 24 * 60 * 60)),
+        ChartPoint(value: 850, date: Date())
+    ]
     
-    let portfolioCurrency = "€"
-    let portfolioValue = "25.000,00"
+    let netWorthChartData: [ChartPoint] = [
+        ChartPoint(value: 10000, date: Date().addingTimeInterval(-30 * 24 * 60 * 60)),
+        ChartPoint(value: 10200, date: Date().addingTimeInterval(-25 * 24 * 60 * 60)),
+        ChartPoint(value: 10150, date: Date().addingTimeInterval(-20 * 24 * 60 * 60)),
+        ChartPoint(value: 10300, date: Date().addingTimeInterval(-15 * 24 * 60 * 60)),
+        ChartPoint(value: 10500, date: Date().addingTimeInterval(-10 * 24 * 60 * 60)),
+        ChartPoint(value: 10800, date: Date().addingTimeInterval(-5 * 24 * 60 * 60)),
+        ChartPoint(value: 11048, date: Date())
+    ]
+    
+    // Mock transactions
+    let recentTransactions = [
+        Transaction(name: "Peloton", amount: 12.99, category: .fitness),
+        Transaction(name: "Brooklyn Animal Sh...", amount: 50.00, category: .donations),
+        Transaction(name: "Starbucks", amount: 7.08, category: .coffee)
+    ]
+    
+    // Mock budget categories
+    let budgetCategories = [
+        BudgetCategory(name: "Travel", icon: "airplane", color: .orange, spent: 24.80, remaining: -24.80),
+        BudgetCategory(name: "Shopping", icon: "bag", color: .pink, spent: 0, remaining: 62.23),
+        BudgetCategory(name: "Food", icon: "fork.knife", color: .yellow, spent: 0, remaining: 48.00),
+        BudgetCategory(name: "Health", icon: "heart", color: .green, spent: 0, remaining: 154.00),
+        BudgetCategory(name: "Entertainment", icon: "tv", color: .blue, spent: 0, remaining: 30.00)
+    ]
+    
+    // Mock upcoming expenses
+    let upcomingExpenses = [
+        UpcomingExpense(name: "Insurance", amount: 1000.00, daysRemaining: 7),
+        UpcomingExpense(name: "Gym", amount: 550.00, daysRemaining: 9),
+//        UpcomingExpense(name: "AC Installment", amount: 354.00, daysRemaining: 11)
+    ]
     
     enum PortfolioView {
         case savings
         case portfolio
-    }
-    
-    func getBalance() -> String {
-        let selectedCurrency = selectedView == .savings ? savingsCurrency : portfolioCurrency
-        let selectedValue = selectedView == .savings ? savingsValue : portfolioValue
-        
-        return "\(selectedCurrency) \(selectedValue)"
     }
     
     var body: some View {
@@ -39,77 +73,181 @@ struct DashboardView: View {
         
         VStack(spacing: 0) {
             // Header section
-            HStack(alignment: .top) {
-                // Left side of header
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Hi, \(currentUser?.username ?? "User")")
-                        .font(.headline)
-                        .foregroundColor(Color(hex: 0x393E46))
-                    
-                    // Toggle buttons
-                    HStack(spacing: 12) {
-                        Button(action: {
-                            selectedView = .savings
-                        }) {
-                            Text("Savings")
-                                .font(.system(size: 16, weight: .semibold))
-                                .foregroundColor(selectedView == .savings ? Color(hex: 0x393E46) : Color(hex: 0x393E46).opacity(0.5))
-                        }
-                        
-                        Button(action: {
-                            selectedView = .portfolio
-                        }) {
-                            Text("Portfolio")
-                                .font(.system(size: 16, weight: .semibold))
-                                .foregroundColor(selectedView == .portfolio ? Color(hex: 0x393E46) : Color(hex: 0x393E46).opacity(0.5))
-                        }
-                    }
-                    
-                    // Account value - changes based on selected view
-                    HStack(alignment: .center, spacing: 8) {
-                        Text("\(isBalanceHidden ? "***" : getBalance())")
-                            .font(.system(size: 24, weight: .bold))
-                            .foregroundColor(Color(hex: 0x393E46))
-                        
-                        Button(action: {
-                            isBalanceHidden.toggle()
-                        }) {
-                            Image(systemName: isBalanceHidden ? "eye.slash" : "eye")
-                                .font(.system(size: 16))
-                                .foregroundColor(Color(hex: 0x393E46).opacity(0.7))
-                        }
-                    }
-                    .padding(.top, 4)
-                }
-                
-                Spacer()
-                
-                // Right side of header - profile icon
-                Button(action: {
-                    showProfileView = true
-                }) {
-                    Image(systemName: "person")
-                        .font(.system(size: 18))
-                }
-                .sheet(isPresented: $showProfileView) {
-                    ProfileView()
-                }
-            }
-            .padding([.horizontal, .top])
+            MainHeader(currentUser: currentUser, isBalanceHidden: isBalanceHidden)
             
-            // Content based on selected view
+            // Main section
             ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
-                    Text("Vinance Dashboard")
-                        .font(.system(size: 24))
-                        .fontWeight(.bold)
-                        .foregroundColor(Color(hex: 0x393E46))
+                VStack(spacing: 20) {
+                    // Charts section with paging scroll effect
+                    GeometryReader { geometry in
+                        TabView {
+                            NetworthChart(
+                                netWorthChartData: netWorthChartData,
+                                netWorthValue: "$11,048",
+                                netWorthGrowth: "1.47%",
+                                isNetWorthPositive: true
+                            )
+                            .frame(width: geometry.size.width - 32)
+                            .padding(.horizontal, 16)
+                            
+                            SpendingChart(
+                                selectedTimePeriod: selectedTimePeriod,
+                                spendingChartData: spendingChartData,
+                                spendingValue: "$566",
+                                underBudgetValue: 74,
+                                colors: [.orange, .green]
+                            )
+                            .frame(width: geometry.size.width - 32)
+                            .padding(.horizontal, 16)
+                        }
+                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                    }
+                    .frame(height: 220) // Set a fixed height for the charts
                     
-                    // More content can be added here
-                    Spacer()
+                    // Budget summary card - original implementation
+                    BudgetSummaryView(
+                        availableBudget: availableBudget,
+                        totalBudget: totalBudget,
+                        underBudget: underBudget
+                    )
+                    .padding(.horizontal)
+                    
+                    // Transactions section
+                    VStack(alignment: .leading, spacing: 12) {
+                        HStack {
+                            Text("TO REVIEW")
+                                .font(.caption)
+                                .fontWeight(.medium)
+                                .foregroundColor(.secondary)
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                // View all transactions
+                            }) {
+                                HStack(spacing: 4) {
+                                    Text("view all")
+                                        .font(.caption)
+                                    Image(systemName: "chevron.right")
+                                        .font(.system(size: 8))
+                                }
+                                .foregroundColor(.blue)
+                            }
+                        }
+                        
+                        // Transaction list
+                        ForEach(recentTransactions) { transaction in
+                            TransactionItemView(transaction: transaction)
+                                .padding(.vertical, 4)
+                        }
+                        
+                        Button(action: {
+                            // Mark all transactions as reviewed
+                        }) {
+                            Text("MARK AS REVIEWED")
+                                .font(.caption)
+                                .fontWeight(.medium)
+                                .foregroundColor(.blue)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 10)
+                        }
+                        .background(Color.blue.opacity(0.1))
+                        .cornerRadius(8)
+                    }
+                    .padding(.horizontal)
+                    
+//                    // Budget categories section
+//                    VStack(alignment: .leading, spacing: 12) {
+//                        HStack {
+//                            Text("BUDGETS")
+//                                .font(.caption)
+//                                .fontWeight(.medium)
+//                                .foregroundColor(.secondary)
+//
+//                            Spacer()
+//
+//                            Button(action: {
+//                                // View all budgets
+//                            }) {
+//                                HStack(spacing: 4) {
+//                                    Text("view all")
+//                                        .font(.caption)
+//                                    Image(systemName: "chevron.right")
+//                                        .font(.system(size: 8))
+//                                }
+//                                .foregroundColor(.blue)
+//                            }
+//                        }
+//
+//                        // Budget categories grid
+//                        HStack(spacing: 12) {
+//                            ForEach(budgetCategories) { category in
+//                                BudgetCategoryView(category: category)
+//                            }
+//                        }
+//                        .padding(.vertical, 4)
+//                    }
+//                    .padding(.horizontal)
+                    
+                    // Upcoming expenses section
+                    VStack(alignment: .leading, spacing: 12) {
+                        HStack {
+                            Text("UPCOMING")
+                                .font(.caption)
+                                .fontWeight(.medium)
+                                .foregroundColor(.secondary)
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                // View all upcoming expenses
+                            }) {
+                                HStack(spacing: 4) {
+                                    Text("view all")
+                                        .font(.caption)
+                                    Image(systemName: "chevron.right")
+                                        .font(.system(size: 8))
+                                }
+                                .foregroundColor(.blue)
+                            }
+                        }
+                        
+                        // Upcoming expenses list
+                        HStack(spacing: 20) {
+                            ForEach(upcomingExpenses) { expense in
+                                UpcomingExpenseView(expense: expense)
+                            }
+                        }
+                        .padding(.vertical, 4)
+                    }
+                    .padding(.horizontal)
+                    
+                    // Income section header
+                    HStack {
+                        Text("INCOME")
+                            .font(.caption)
+                            .fontWeight(.medium)
+                            .foregroundColor(.secondary)
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            // View all income
+                        }) {
+                            HStack(spacing: 4) {
+                                Text("view all")
+                                    .font(.caption)
+                                Image(systemName: "chevron.right")
+                                    .font(.system(size: 8))
+                            }
+                            .foregroundColor(.blue)
+                        }
+                    }
+                    .padding(.horizontal)
                 }
-                .frame(maxWidth: .infinity)
+                .padding(.vertical)
             }
+            .background(Color.lightBackground.ignoresSafeArea())
         }
         .navigationBarHidden(true)
     }
