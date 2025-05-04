@@ -43,6 +43,18 @@ func (m *MockAccountService) CreateAccount(ctx context.Context, userID string, r
 	return args.Bool(0), args.Error(1)
 }
 
+type MockCategoryService struct {
+	mock.Mock
+}
+
+func (m *MockCategoryService) GetCompleteCategory(ctx context.Context, userID string) ([]model.GetCompleteCategoriesResponse, error) {
+	args := m.Called(ctx, userID)
+	if args.Get(0) == nil {
+		return nil, args.Error(1)
+	}
+	return args.Get(0).([]model.GetCompleteCategoriesResponse), args.Error(1)
+}
+
 func TestApp_Initialization(t *testing.T) {
 	// Create mock services
 	mockUserService := new(MockUserService)

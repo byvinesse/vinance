@@ -78,4 +78,11 @@ func initRoutes(e *echo.Echo, app *application.App, h *server.Handler) {
 	// Users V1
 	usersV1Route := usersRoute.Group("/v1")
 	usersV1Route.GET("/profile", h.GetProfile, withAuth)
+
+	// Categories
+	categoriesRoute := e.Group("/categories")
+
+	// Categories V1
+	categoriesV1Route := categoriesRoute.Group("/v1")
+	categoriesV1Route.GET("/complete", h.GetCompleteCategories, withAuth)
 }

@@ -15,3 +15,7 @@ type IUserService interface {
 type IAccountService interface {
 	CreateAccount(ctx context.Context, userID string, request *model.CreateAccountRequest) (bool, error)
 }
+
+type ICategoryService interface {
+	GetCompleteCategory(ctx context.Context, userID string) ([]model.GetCompleteCategoriesResponse, error)
+}

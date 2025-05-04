@@ -14,3 +14,10 @@ type GetProfileResponse struct {
 	Gender      string `json:"gender"`
 	DateOfBirth int64  `json:"date_of_birth"`
 }
+
+type GetCompleteCategoriesResponse struct {
+	CategoryID      string `json:"category_id"`
+	SubCategoryID   string `json:"subcategory_id"`
+	CategoryName    string `json:"category_name"`
+	SubCategoryName string `json:"subcategory_name"`
+}

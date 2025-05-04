@@ -14,3 +14,7 @@ type User interface {
 type Account interface {
 	InsertOne(ctx context.Context, user *entity.Account) (*entity.Account, error)
 }
+
+type Category interface {
+	FindCompleteCategory(ctx context.Context, userID string) ([]entity.CategoryWithSubCategory, error)
+}
