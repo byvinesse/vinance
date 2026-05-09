@@ -1,0 +1,26 @@
+name: iOS CI
+
+on:
+  pull_request:
+    branches:
+      - master
+      - 'release/**'
+    paths:
+      - 'apps/ios/**'
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build
+        run: |
+          xcodebuild build \
+            -project apps/ios/Vinance.xcodeproj \
+            -scheme Vinance \
+            -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO
