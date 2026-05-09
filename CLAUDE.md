@@ -1,3 +1,18 @@
+# Development Standards
+
+## Philosophy
+- Use best judgments, no speculative features.
+- Justify new dependencies.
+- Always have unit test / integration test for every feature / fix, have it within separate commit after
+- Break commit per core scope when possible
+
+## Git
+- Use commit standards from conventional commits; feat, fix, chore, config, test, docs. Commit messages should be concise & descriptive
+- Use same naming convention for branch naming; feat/ , fix/ , chore/ , config/ , test/ , docs/
+- When tasked from task management app (Linear), use the ticket name as branch name (e.g. feat/VNC-100 , fix/VNC-125)
+- Create PR against master branch
+- Never push to master, always to non-master branch
+
 # CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
