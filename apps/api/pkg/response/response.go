@@ -3,14 +3,22 @@ package response
 import (
 	"net/http"
 
+	"github.com/byvinesse/vinance-backend/entity"
 	"github.com/labstack/echo/v4"
-	"github.com/vincentkdeli/vinance-backend/entity"
 )
 
 func Ok[T any](c echo.Context, data T) error {
 	return c.JSON(http.StatusOK, entity.OkResponse[T]{
 		Code:   200,
 		Status: "OK",
+		Data:   data,
+	})
+}
+
+func OkCreated[T any](c echo.Context, data T) error {
+	return c.JSON(http.StatusCreated, entity.OkResponse[T]{
+		Code:   201,
+		Status: "Created",
 		Data:   data,
 	})
 }

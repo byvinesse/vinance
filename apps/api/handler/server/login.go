@@ -3,10 +3,10 @@ package server
 import (
 	"fmt"
 
+	"github.com/byvinesse/vinance-backend/model"
+	"github.com/byvinesse/vinance-backend/pkg/errors"
+	"github.com/byvinesse/vinance-backend/pkg/response"
 	"github.com/labstack/echo/v4"
-	"github.com/vincentkdeli/vinance-backend/model"
-	"github.com/vincentkdeli/vinance-backend/pkg/errors"
-	"github.com/vincentkdeli/vinance-backend/pkg/response"
 )
 
 func (h *Handler) Login(c echo.Context) error {
@@ -23,9 +23,9 @@ func (h *Handler) Login(c echo.Context) error {
 		return errors.ErrMissingField("password")
 	}
 
-	result, err := h.app.AuthService.Login(ctx, &req)
+	result, err := h.app.UserService.Login(ctx, &req)
 	if err != nil {
-		return errors.ErrInternalServerError(err, fmt.Sprintf("failed to #login member for request: %s", req.Email))
+		return errors.ErrInternalServerError(err, fmt.Sprintf("failed to #login user for request: %s", req.Email))
 	}
 
 	return response.Ok(c, result)

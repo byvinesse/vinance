@@ -1,6 +1,6 @@
 package server
 
-import "github.com/vincentkdeli/vinance-backend/cmd/application"
+import "github.com/byvinesse/vinance-backend/cmd/application"
 
 type Handler struct {
 	app *application.App

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/vincentkdeli/vinance-backend/cmd/application"
-	"github.com/vincentkdeli/vinance-backend/cmd/server"
+	"github.com/byvinesse/vinance-backend/cmd/application"
+	"github.com/byvinesse/vinance-backend/cmd/server"
 )
 
 func main() {

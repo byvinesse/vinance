@@ -4,14 +4,14 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/byvinesse/vinance-backend/cmd/application"
+	"github.com/byvinesse/vinance-backend/handler/server"
+	"github.com/byvinesse/vinance-backend/pkg/errors"
+	"github.com/byvinesse/vinance-backend/pkg/response"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	"github.com/vincentkdeli/vinance-backend/cmd/application"
-	"github.com/vincentkdeli/vinance-backend/handler/server"
-	"github.com/vincentkdeli/vinance-backend/pkg/errors"
-	"github.com/vincentkdeli/vinance-backend/pkg/response"
 
-	appmiddleware "github.com/vincentkdeli/vinance-backend/pkg/middleware"
+	appmiddleware "github.com/byvinesse/vinance-backend/pkg/middleware"
 )
 
 func Run(app *application.App) {
@@ -42,17 +42,6 @@ func Run(app *application.App) {
 }
 
 func initRoutes(e *echo.Echo, app *application.App, h *server.Handler) {
-	// Healthcheck
-	e.GET("/healthcheck", func(c echo.Context) error {
-		return c.String(http.StatusOK, "OK")
-	})
-
-	v1 := e.Group("/v1")
-
-	// Auth
-	v1.POST("/register", h.Register)
-	v1.POST("/login", h.Login)
-
 	withAuth := appmiddleware.Authentication(
 		app.Authenticator,
 		appmiddleware.AuthConfig{
@@ -60,8 +49,40 @@ func initRoutes(e *echo.Echo, app *application.App, h *server.Handler) {
 		},
 	)
 
-	// TODO: delete
-	v1.GET("/protected", func(c echo.Context) error {
+	// Healthcheck
+	e.GET("/healthcheck", func(c echo.Context) error {
+		return c.String(http.StatusOK, "OK")
+	})
+	e.GET("/protected", func(c echo.Context) error {
 		return response.Ok(c, true)
 	}, withAuth)
+
+	// Auth
+	authRoute := e.Group("/auth")
+
+	// Auth V1
+	authV1Route := authRoute.Group("/v1")
+	authV1Route.POST("/register", h.Register)
+	authV1Route.POST("/login", h.Login)
+
+	// Accounts
+	accountsRoute := e.Group("/accounts")
+
+	// Accounts V1
+	accountsV1Route := accountsRoute.Group("/v1")
+	accountsV1Route.POST("/_create", h.CreateAccount, withAuth)
+
+	// Users
+	usersRoute := e.Group("/users")
+
+	// Users V1
+	usersV1Route := usersRoute.Group("/v1")
+	usersV1Route.GET("/profile", h.GetProfile, withAuth)
+
+	// Categories
+	categoriesRoute := e.Group("/categories")
+
+	// Categories V1
+	categoriesV1Route := categoriesRoute.Group("/v1")
+	categoriesV1Route.GET("/complete", h.GetCompleteCategories, withAuth)
 }

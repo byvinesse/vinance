@@ -1,62 +1,59 @@
 package application
 
 import (
-	"context"
+	"github.com/byvinesse/vinance-backend/config"
+	auth "github.com/byvinesse/vinance-backend/pkg/authenticator"
+	"github.com/byvinesse/vinance-backend/pkg/service"
+	"github.com/byvinesse/vinance-backend/pkg/validator"
+	"github.com/byvinesse/vinance-backend/repository/db"
+	"github.com/jmoiron/sqlx"
 
-	"github.com/vincentkdeli/vinance-backend/config"
-	"github.com/vincentkdeli/vinance-backend/entity"
-	auth "github.com/vincentkdeli/vinance-backend/pkg/authenticator"
-	"github.com/vincentkdeli/vinance-backend/pkg/service"
-	"github.com/vincentkdeli/vinance-backend/pkg/validator"
-	"github.com/vincentkdeli/vinance-backend/repository/db"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
+	_ "github.com/lib/pq"
 )
 
 type App struct {
-	AuthService service.IAuthService
+	UserService     service.IUserService
+	AccountService  service.IAccountService
+	CategoryService service.ICategoryService
 
 	Authenticator *auth.Authenticator
 }
 
 func NewApp() *App {
-	ctx := context.Background()
-
 	authConfig := config.LoadAuth()
 	authenticator := auth.NewAuthenticator(authConfig)
 
 	// Init Database
-	database := connectDatabase(ctx)
+	database := connectDatabase()
 
 	// Init repository
-	authRepo := db.NewAuth(database)
+	userRepo := db.NewUser(database)
+	accountRepo := db.NewAccount(database)
+	categoryRepo := db.NewCategory(database)
 
 	// Init service
-	authService := service.NewAuthService(authRepo, *authenticator)
+	userService := service.NewUserService(userRepo, *authenticator)
+	accountService := service.NewAccountService(accountRepo)
+	categoryService := service.NewCategoryService(categoryRepo)
 
 	validator.Init()
 
 	return &App{
-		AuthService: authService,
+		UserService:     userService,
+		AccountService:  accountService,
+		CategoryService: categoryService,
 
 		Authenticator: authenticator,
 	}
 }
 
-func connectDatabase(ctx context.Context) *mongo.Database {
+func connectDatabase() *sqlx.DB {
 	databaseConfig := config.LoadDatabase()
-	clientOptions := options.Client()
-	clientOptions.ApplyURI(databaseConfig.URI)
 
-	client, err := mongo.NewClient(clientOptions)
+	database, err := sqlx.Open("postgres", databaseConfig.URI)
 	if err != nil {
 		panic(err)
 	}
 
-	err = client.Connect(ctx)
-	if err != nil {
-		panic(err)
-	}
-
-	return client.Database(entity.DatabaseName)
+	return database
 }
