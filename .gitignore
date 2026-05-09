@@ -1,0 +1,40 @@
+# ─── Node / Next.js ──────────────────────────────────────────────────────────
+node_modules/
+.next/
+out/
+.turbo/
+.vercel/
+*.tsbuildinfo
+
+# ─── Go ──────────────────────────────────────────────────────────────────────
+vendor/
+*.exe
+*.test
+*.out
+
+# ─── iOS / Xcode ─────────────────────────────────────────────────────────────
+# Swift Package Manager resolved deps & build artifacts
+apps/ios/.build/
+apps/ios/SourcePackages/
+*.xcworkspace/xcshareddata/swiftpm/Package.resolved
+xcuserdata/
+*.xccheckout
+*.moved-aside
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# ─── Environment & secrets ───────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ─── OS / editor ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
