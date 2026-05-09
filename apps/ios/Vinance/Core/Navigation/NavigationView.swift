@@ -7,50 +7,84 @@
 
 import SwiftUI
 
-struct NavigationView: View {
+/// Root tab-bar container.
+/// Tab structure mirrors the design reference (VNC-36):
+///   Home · Txns · Analytics · Budgets  +  FAB overlay
+struct AppTabView: View {
+
+    init() {
+        configureTabBarAppearance()
+    }
+
     var body: some View {
-        TabView {
-            NavigationStack {
-                DashboardView()
+        ZStack(alignment: .bottom) {
+            TabView {
+                // 1 — Home
+                NavigationStack {
+                    HomeView()
+                }
+                .tabItem {
+                    Label("Home", systemImage: "house.fill")
+                }
+
+                // 2 — Transactions (placeholder — full screen in future ticket)
+                NavigationStack {
+                    PlanningView()
+                }
+                .tabItem {
+                    Label("Txns", systemImage: "list.bullet.rectangle.portrait")
+                }
+
+                // 3 — Analytics (placeholder — full screen in future ticket)
+                NavigationStack {
+                    StatisticsView()
+                }
+                .tabItem {
+                    Label("Analytics", systemImage: "chart.bar.fill")
+                }
+
+                // 4 — Budgets (placeholder — full screen in future ticket)
+                NavigationStack {
+                    MoreView()
+                }
+                .tabItem {
+                    Label("Budgets", systemImage: "target")
+                }
             }
-            .tabItem {
-                Label("Dashboard", systemImage: "house.fill")
-            }
-            
-            NavigationStack {
-                PlanningView()
-            }
-            .tabItem {
-                Label("Planning", systemImage: "calendar")
-            }
-            
-            NavigationStack {
-                AddNewView()
-            }
-            .tabItem {
-                Label("", systemImage: "plus.circle.fill")
-            }
-            
-            NavigationStack {
-                StatisticsView()
-            }
-            .tabItem {
-                Label("Statistics", systemImage: "chart.bar.fill")
-            }
-            
-            NavigationStack {
-                MoreView()
-            }
-            .tabItem {
-                Label("More", systemImage: "ellipsis")
-            }
+            .accentColor(Color.vAccent2)
         }
-        .accentColor(Color(hex: 0x393E46))
+    }
+
+    // MARK: - Tab Bar Styling
+
+    private func configureTabBarAppearance() {
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(Color.vSurface).withAlphaComponent(0.95)
+
+        // Normal item style
+        let normalAttrs: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor(Color.vText3)
+        ]
+        // Selected item style
+        let selectedAttrs: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor(Color.vAccent2)
+        ]
+
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes   = normalAttrs
+        appearance.stackedLayoutAppearance.selected.titleTextAttributes = selectedAttrs
+        appearance.stackedLayoutAppearance.normal.iconColor   = UIColor(Color.vText3)
+        appearance.stackedLayoutAppearance.selected.iconColor = UIColor(Color.vAccent2)
+
+        UITabBar.appearance().standardAppearance   = appearance
+        UITabBar.appearance().scrollEdgeAppearance = appearance
+        UITabBar.appearance().tintColor            = UIColor(Color.vAccent2)
     }
 }
 
-struct NavigationView_Previews: PreviewProvider {
+struct AppTabView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView()
+        AppTabView()
+            .preferredColorScheme(.dark)
     }
 }

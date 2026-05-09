@@ -49,6 +49,7 @@
 		E2CA96412B1DD34A00F6FA2F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA96402B1DD34A00F6FA2F /* User.swift */; };
 		E2CA96462B1DD78700F6FA2F /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA96452B1DD78700F6FA2F /* AuthViewModel.swift */; };
 		E2CA96492B1E1F8A00F6FA2F /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA96482B1E1F8A00F6FA2F /* LoginRequest.swift */; };
+		FA000001DABBE9D008840001 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA000002DABBE9D008840002 /* HomeView.swift */; };
 		E2CA964C2B1E1FCD00F6FA2F /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA964B2B1E1FCD00F6FA2F /* CustomError.swift */; };
 		E2CA964F2B1E200400F6FA2F /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA964E2B1E200400F6FA2F /* LoginResponse.swift */; };
 /* End PBXBuildFile section */
@@ -114,6 +115,7 @@
 		E2CA963C2B1DCFE500F6FA2F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E2CA963E2B1DD18C00F6FA2F /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		E2CA96402B1DD34A00F6FA2F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FA000002DABBE9D008840002 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E2CA96452B1DD78700F6FA2F /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		E2CA96482B1E1F8A00F6FA2F /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		E2CA964B2B1E1FCD00F6FA2F /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				E286D1FD2D9CCEA700CE5281 /* Statistics */,
 				E286D1FA2D9CCE4E00CE5281 /* Planning */,
 				E286D1F72D9CCD8500CE5281 /* Dashboard */,
+				FA000003DABBE9D008840003 /* Home */,
 				E286D1EC2D9CC71500CE5281 /* Network */,
 				E24AEAC02B1CDC56002EC92A /* Authentication */,
 				E24AEAC12B1CDC5C002EC92A /* Profile */,
@@ -270,6 +273,14 @@
 				E286D1F82D9CCD9700CE5281 /* DashboardView.swift */,
 			);
 			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		FA000003DABBE9D008840003 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FA000002DABBE9D008840002 /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		E286D1FA2D9CCE4E00CE5281 /* Planning */ = {
@@ -583,6 +594,7 @@
 				E2175CBB2DABC9A600884140 /* LineChartView.swift in Sources */,
 				E2CA963F2B1DD18C00F6FA2F /* SettingsRowView.swift in Sources */,
 				E2CA96462B1DD78700F6FA2F /* AuthViewModel.swift in Sources */,
+				FA000001DABBE9D008840001 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
