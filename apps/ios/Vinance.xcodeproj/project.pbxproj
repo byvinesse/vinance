@@ -1,0 +1,924 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E2175CAC2DABBE9D00884140 /* NetWorthChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CAB2DABBE9D00884140 /* NetWorthChart.swift */; };
+		E2175CB12DABC18500884140 /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CB02DABC18500884140 /* TimePeriod.swift */; };
+		E2175CB32DABC41B00884140 /* SpendingChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CB22DABC41B00884140 /* SpendingChart.swift */; };
+		E2175CB52DABC5FA00884140 /* MainHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CB42DABC5FA00884140 /* MainHeader.swift */; };
+		E2175CB92DABC92100884140 /* BudgetSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CB82DABC92100884140 /* BudgetSummaryView.swift */; };
+		E2175CBB2DABC9A600884140 /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CBA2DABC9A600884140 /* LineChartView.swift */; };
+		E2175CBD2DABCA2800884140 /* BudgetCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CBC2DABCA2800884140 /* BudgetCategoryView.swift */; };
+		E2175CBF2DABCA7300884140 /* UpcomingExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CBE2DABCA7300884140 /* UpcomingExpenseView.swift */; };
+		E2175CC12DABCAC400884140 /* LineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CC02DABCAC400884140 /* LineShape.swift */; };
+		E2175CC32DABCAEC00884140 /* ChartPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CC22DABCAEC00884140 /* ChartPoint.swift */; };
+		E2175CC52DABCB6600884140 /* BudgetCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CC42DABCB6600884140 /* BudgetCategory.swift */; };
+		E2175CC72DABCB7E00884140 /* UpcomingExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CC62DABCB7E00884140 /* UpcomingExpense.swift */; };
+		E2175CCA2DABCBE700884140 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CC92DABCBE700884140 /* Color+Extension.swift */; };
+		E2175CCC2DABCC7100884140 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CCB2DABCC7100884140 /* Transaction.swift */; };
+		E2175CCE2DABCCBE00884140 /* TransactionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2175CCD2DABCCBE00884140 /* TransactionItemView.swift */; };
+		E24AEAC32B1CDCCA002EC92A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24AEAC22B1CDCCA002EC92A /* LoginView.swift */; };
+		E24AEAC52B1CDE39002EC92A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24AEAC42B1CDE39002EC92A /* InputView.swift */; };
+		E24AEAC72B1CE17F002EC92A /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24AEAC62B1CE17F002EC92A /* RegistrationView.swift */; };
+		E286D1EE2D9CC72600CE5281 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D1ED2D9CC72600CE5281 /* APIConfig.swift */; };
+		E286D1F02D9CC74B00CE5281 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D1EF2D9CC74B00CE5281 /* NetworkService.swift */; };
+		E286D1F42D9CC80E00CE5281 /* AuthModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D1F32D9CC80E00CE5281 /* AuthModels.swift */; };
+		E286D1F92D9CCD9700CE5281 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D1F82D9CCD9700CE5281 /* DashboardView.swift */; };
+		E286D1FC2D9CCE5D00CE5281 /* PlanningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D1FB2D9CCE5D00CE5281 /* PlanningView.swift */; };
+		E286D1FF2D9CCEB800CE5281 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D1FE2D9CCEB800CE5281 /* StatisticsView.swift */; };
+		E286D2022D9CCEE300CE5281 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D2012D9CCEE300CE5281 /* MoreView.swift */; };
+		E286D2052D9CCF2700CE5281 /* AddNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286D2042D9CCF2700CE5281 /* AddNewView.swift */; };
+		E293932D2B54172E0002EA80 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E293932C2B54172E0002EA80 /* RegisterRequest.swift */; };
+		E293932F2B5417D60002EA80 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E293932E2B5417D60002EA80 /* RegisterResponse.swift */; };
+		E295C3102D9CD46E005F3C2E /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295C30F2D9CD46E005F3C2E /* NavigationView.swift */; };
+		E295C3122DA27FE4005F3C2E /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295C3112DA27FE4005F3C2E /* UserResponse.swift */; };
+		E2C68A502B1BA89100926D87 /* VinanceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A4F2B1BA89100926D87 /* VinanceApp.swift */; };
+		E2C68A522B1BA89100926D87 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A512B1BA89100926D87 /* ContentView.swift */; };
+		E2C68A542B1BA89200926D87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C68A532B1BA89200926D87 /* Assets.xcassets */; };
+		E2C68A572B1BA89200926D87 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C68A562B1BA89200926D87 /* Preview Assets.xcassets */; };
+		E2C68A612B1BA89200926D87 /* VinanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A602B1BA89200926D87 /* VinanceTests.swift */; };
+		E2C68A6B2B1BA89200926D87 /* VinanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A6A2B1BA89200926D87 /* VinanceUITests.swift */; };
+		E2C68A6D2B1BA89200926D87 /* VinanceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A6C2B1BA89200926D87 /* VinanceUITestsLaunchTests.swift */; };
+		E2CA963D2B1DCFE500F6FA2F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA963C2B1DCFE500F6FA2F /* ProfileView.swift */; };
+		E2CA963F2B1DD18C00F6FA2F /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA963E2B1DD18C00F6FA2F /* SettingsRowView.swift */; };
+		E2CA96412B1DD34A00F6FA2F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA96402B1DD34A00F6FA2F /* User.swift */; };
+		E2CA96462B1DD78700F6FA2F /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA96452B1DD78700F6FA2F /* AuthViewModel.swift */; };
+		E2CA96492B1E1F8A00F6FA2F /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA96482B1E1F8A00F6FA2F /* LoginRequest.swift */; };
+		FA000001DABBE9D008840001 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA000002DABBE9D008840002 /* HomeView.swift */; };
+		E2CA964C2B1E1FCD00F6FA2F /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA964B2B1E1FCD00F6FA2F /* CustomError.swift */; };
+		E2CA964F2B1E200400F6FA2F /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA964E2B1E200400F6FA2F /* LoginResponse.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E2C68A5D2B1BA89200926D87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2C68A442B1BA89100926D87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E2C68A4B2B1BA89100926D87;
+			remoteInfo = vinance;
+		};
+		E2C68A672B1BA89200926D87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2C68A442B1BA89100926D87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E2C68A4B2B1BA89100926D87;
+			remoteInfo = vinance;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E2175CAB2DABBE9D00884140 /* NetWorthChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorthChart.swift; sourceTree = "<group>"; };
+		E2175CB02DABC18500884140 /* TimePeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriod.swift; sourceTree = "<group>"; };
+		E2175CB22DABC41B00884140 /* SpendingChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingChart.swift; sourceTree = "<group>"; };
+		E2175CB42DABC5FA00884140 /* MainHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeader.swift; sourceTree = "<group>"; };
+		E2175CB82DABC92100884140 /* BudgetSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetSummaryView.swift; sourceTree = "<group>"; };
+		E2175CBA2DABC9A600884140 /* LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
+		E2175CBC2DABCA2800884140 /* BudgetCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCategoryView.swift; sourceTree = "<group>"; };
+		E2175CBE2DABCA7300884140 /* UpcomingExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingExpenseView.swift; sourceTree = "<group>"; };
+		E2175CC02DABCAC400884140 /* LineShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineShape.swift; sourceTree = "<group>"; };
+		E2175CC22DABCAEC00884140 /* ChartPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPoint.swift; sourceTree = "<group>"; };
+		E2175CC42DABCB6600884140 /* BudgetCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCategory.swift; sourceTree = "<group>"; };
+		E2175CC62DABCB7E00884140 /* UpcomingExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingExpense.swift; sourceTree = "<group>"; };
+		E2175CC92DABCBE700884140 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		E2175CCB2DABCC7100884140 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		E2175CCD2DABCCBE00884140 /* TransactionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItemView.swift; sourceTree = "<group>"; };
+		E24AEAC22B1CDCCA002EC92A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E24AEAC42B1CDE39002EC92A /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		E24AEAC62B1CE17F002EC92A /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		E286D1ED2D9CC72600CE5281 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
+		E286D1EF2D9CC74B00CE5281 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E286D1F32D9CC80E00CE5281 /* AuthModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModels.swift; sourceTree = "<group>"; };
+		E286D1F82D9CCD9700CE5281 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		E286D1FB2D9CCE5D00CE5281 /* PlanningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningView.swift; sourceTree = "<group>"; };
+		E286D1FE2D9CCEB800CE5281 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		E286D2012D9CCEE300CE5281 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
+		E286D2042D9CCF2700CE5281 /* AddNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewView.swift; sourceTree = "<group>"; };
+		E293932C2B54172E0002EA80 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
+		E293932E2B5417D60002EA80 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
+		E295C30F2D9CD46E005F3C2E /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
+		E295C3112DA27FE4005F3C2E /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		E2C68A4C2B1BA89100926D87 /* Vinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2C68A4F2B1BA89100926D87 /* VinanceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VinanceApp.swift; sourceTree = "<group>"; };
+		E2C68A512B1BA89100926D87 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E2C68A532B1BA89200926D87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E2C68A562B1BA89200926D87 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E2C68A5C2B1BA89200926D87 /* VinanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VinanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2C68A602B1BA89200926D87 /* VinanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VinanceTests.swift; sourceTree = "<group>"; };
+		E2C68A662B1BA89200926D87 /* VinanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VinanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2C68A6A2B1BA89200926D87 /* VinanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VinanceUITests.swift; sourceTree = "<group>"; };
+		E2C68A6C2B1BA89200926D87 /* VinanceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VinanceUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E2CA963C2B1DCFE500F6FA2F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E2CA963E2B1DD18C00F6FA2F /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
+		E2CA96402B1DD34A00F6FA2F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FA000002DABBE9D008840002 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E2CA96452B1DD78700F6FA2F /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		E2CA96482B1E1F8A00F6FA2F /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		E2CA964B2B1E1FCD00F6FA2F /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		E2CA964E2B1E200400F6FA2F /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E2C68A492B1BA89100926D87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2C68A592B1BA89200926D87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2C68A632B1BA89200926D87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E2175CAF2DABC17C00884140 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				E2175CB02DABC18500884140 /* TimePeriod.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		E2175CC82DABCBDA00884140 /* Utilies */ = {
+			isa = PBXGroup;
+			children = (
+				E2175CC92DABCBE700884140 /* Color+Extension.swift */,
+			);
+			path = Utilies;
+			sourceTree = "<group>";
+		};
+		E24AEABA2B1CDBA0002EC92A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E2C68A4F2B1BA89100926D87 /* VinanceApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E24AEABC2B1CDBA8002EC92A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E24AEAC42B1CDE39002EC92A /* InputView.swift */,
+				E2CA963E2B1DD18C00F6FA2F /* SettingsRowView.swift */,
+				E2175CAB2DABBE9D00884140 /* NetWorthChart.swift */,
+				E2175CB22DABC41B00884140 /* SpendingChart.swift */,
+				E2175CB42DABC5FA00884140 /* MainHeader.swift */,
+				E2175CB82DABC92100884140 /* BudgetSummaryView.swift */,
+				E2175CBA2DABC9A600884140 /* LineChartView.swift */,
+				E2175CBC2DABCA2800884140 /* BudgetCategoryView.swift */,
+				E2175CBE2DABCA7300884140 /* UpcomingExpenseView.swift */,
+				E2175CC02DABCAC400884140 /* LineShape.swift */,
+				E2175CCD2DABCCBE00884140 /* TransactionItemView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E24AEABD2B1CDBAB002EC92A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E2175CC82DABCBDA00884140 /* Utilies */,
+				E295C30E2D9CD462005F3C2E /* Navigation */,
+				E286D2032D9CCF1C00CE5281 /* AddNew */,
+				E286D2002D9CCED900CE5281 /* More */,
+				E286D1FD2D9CCEA700CE5281 /* Statistics */,
+				E286D1FA2D9CCE4E00CE5281 /* Planning */,
+				E286D1F72D9CCD8500CE5281 /* Dashboard */,
+				FA000003DABBE9D008840003 /* Home */,
+				E286D1EC2D9CC71500CE5281 /* Network */,
+				E24AEAC02B1CDC56002EC92A /* Authentication */,
+				E24AEAC12B1CDC5C002EC92A /* Profile */,
+				E24AEABF2B1CDC0C002EC92A /* Root */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E24AEABE2B1CDBAF002EC92A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E2175CAF2DABC17C00884140 /* Enums */,
+				E2CA964A2B1E1FBF00F6FA2F /* Error */,
+				E2CA96472B1E1F7500F6FA2F /* Request */,
+				E2CA964D2B1E1FFA00F6FA2F /* Response */,
+				E2CA96402B1DD34A00F6FA2F /* User.swift */,
+				E2175CC22DABCAEC00884140 /* ChartPoint.swift */,
+				E2175CC42DABCB6600884140 /* BudgetCategory.swift */,
+				E2175CC62DABCB7E00884140 /* UpcomingExpense.swift */,
+				E2175CCB2DABCC7100884140 /* Transaction.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E24AEABF2B1CDC0C002EC92A /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				E2C68A512B1BA89100926D87 /* ContentView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		E24AEAC02B1CDC56002EC92A /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				E286D1F22D9CC7F100CE5281 /* Model */,
+				E2CA96422B1DD74B00F6FA2F /* View */,
+				E2CA96442B1DD75C00F6FA2F /* ViewModel */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		E24AEAC12B1CDC5C002EC92A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E2CA963C2B1DCFE500F6FA2F /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		E286D1EC2D9CC71500CE5281 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E286D1ED2D9CC72600CE5281 /* APIConfig.swift */,
+				E286D1EF2D9CC74B00CE5281 /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E286D1F22D9CC7F100CE5281 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E286D1F32D9CC80E00CE5281 /* AuthModels.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E286D1F72D9CCD8500CE5281 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				E286D1F82D9CCD9700CE5281 /* DashboardView.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		FA000003DABBE9D008840003 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FA000002DABBE9D008840002 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E286D1FA2D9CCE4E00CE5281 /* Planning */ = {
+			isa = PBXGroup;
+			children = (
+				E286D1FB2D9CCE5D00CE5281 /* PlanningView.swift */,
+			);
+			path = Planning;
+			sourceTree = "<group>";
+		};
+		E286D1FD2D9CCEA700CE5281 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				E286D1FE2D9CCEB800CE5281 /* StatisticsView.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
+		E286D2002D9CCED900CE5281 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				E286D2012D9CCEE300CE5281 /* MoreView.swift */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		E286D2032D9CCF1C00CE5281 /* AddNew */ = {
+			isa = PBXGroup;
+			children = (
+				E286D2042D9CCF2700CE5281 /* AddNewView.swift */,
+			);
+			path = AddNew;
+			sourceTree = "<group>";
+		};
+		E295C30E2D9CD462005F3C2E /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				E295C30F2D9CD46E005F3C2E /* NavigationView.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		E2C68A432B1BA89100926D87 = {
+			isa = PBXGroup;
+			children = (
+				E2C68A4E2B1BA89100926D87 /* Vinance */,
+				E2C68A5F2B1BA89200926D87 /* VinanceTests */,
+				E2C68A692B1BA89200926D87 /* VinanceUITests */,
+				E2C68A4D2B1BA89100926D87 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E2C68A4D2B1BA89100926D87 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E2C68A4C2B1BA89100926D87 /* Vinance.app */,
+				E2C68A5C2B1BA89200926D87 /* VinanceTests.xctest */,
+				E2C68A662B1BA89200926D87 /* VinanceUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E2C68A4E2B1BA89100926D87 /* Vinance */ = {
+			isa = PBXGroup;
+			children = (
+				E24AEABA2B1CDBA0002EC92A /* App */,
+				E24AEABC2B1CDBA8002EC92A /* Components */,
+				E24AEABD2B1CDBAB002EC92A /* Core */,
+				E24AEABE2B1CDBAF002EC92A /* Model */,
+				E2C68A532B1BA89200926D87 /* Assets.xcassets */,
+				E2C68A552B1BA89200926D87 /* Preview Content */,
+			);
+			path = Vinance;
+			sourceTree = "<group>";
+		};
+		E2C68A552B1BA89200926D87 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E2C68A562B1BA89200926D87 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E2C68A5F2B1BA89200926D87 /* VinanceTests */ = {
+			isa = PBXGroup;
+			children = (
+				E2C68A602B1BA89200926D87 /* VinanceTests.swift */,
+			);
+			path = VinanceTests;
+			sourceTree = "<group>";
+		};
+		E2C68A692B1BA89200926D87 /* VinanceUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E2C68A6A2B1BA89200926D87 /* VinanceUITests.swift */,
+				E2C68A6C2B1BA89200926D87 /* VinanceUITestsLaunchTests.swift */,
+			);
+			path = VinanceUITests;
+			sourceTree = "<group>";
+		};
+		E2CA96422B1DD74B00F6FA2F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E24AEAC22B1CDCCA002EC92A /* LoginView.swift */,
+				E24AEAC62B1CE17F002EC92A /* RegistrationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E2CA96442B1DD75C00F6FA2F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E2CA96452B1DD78700F6FA2F /* AuthViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E2CA96472B1E1F7500F6FA2F /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				E2CA96482B1E1F8A00F6FA2F /* LoginRequest.swift */,
+				E293932C2B54172E0002EA80 /* RegisterRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		E2CA964A2B1E1FBF00F6FA2F /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				E2CA964B2B1E1FCD00F6FA2F /* CustomError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		E2CA964D2B1E1FFA00F6FA2F /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				E2CA964E2B1E200400F6FA2F /* LoginResponse.swift */,
+				E293932E2B5417D60002EA80 /* RegisterResponse.swift */,
+				E295C3112DA27FE4005F3C2E /* UserResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E2C68A4B2B1BA89100926D87 /* Vinance */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2C68A702B1BA89200926D87 /* Build configuration list for PBXNativeTarget "Vinance" */;
+			buildPhases = (
+				E2C68A482B1BA89100926D87 /* Sources */,
+				E2C68A492B1BA89100926D87 /* Frameworks */,
+				E2C68A4A2B1BA89100926D87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Vinance;
+			productName = vinance;
+			productReference = E2C68A4C2B1BA89100926D87 /* Vinance.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E2C68A5B2B1BA89200926D87 /* VinanceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2C68A732B1BA89200926D87 /* Build configuration list for PBXNativeTarget "VinanceTests" */;
+			buildPhases = (
+				E2C68A582B1BA89200926D87 /* Sources */,
+				E2C68A592B1BA89200926D87 /* Frameworks */,
+				E2C68A5A2B1BA89200926D87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E2C68A5E2B1BA89200926D87 /* PBXTargetDependency */,
+			);
+			name = VinanceTests;
+			productName = vinanceTests;
+			productReference = E2C68A5C2B1BA89200926D87 /* VinanceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E2C68A652B1BA89200926D87 /* VinanceUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2C68A762B1BA89200926D87 /* Build configuration list for PBXNativeTarget "VinanceUITests" */;
+			buildPhases = (
+				E2C68A622B1BA89200926D87 /* Sources */,
+				E2C68A632B1BA89200926D87 /* Frameworks */,
+				E2C68A642B1BA89200926D87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E2C68A682B1BA89200926D87 /* PBXTargetDependency */,
+			);
+			name = VinanceUITests;
+			productName = vinanceUITests;
+			productReference = E2C68A662B1BA89200926D87 /* VinanceUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E2C68A442B1BA89100926D87 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					E2C68A4B2B1BA89100926D87 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					E2C68A5B2B1BA89200926D87 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = E2C68A4B2B1BA89100926D87;
+					};
+					E2C68A652B1BA89200926D87 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = E2C68A4B2B1BA89100926D87;
+					};
+				};
+			};
+			buildConfigurationList = E2C68A472B1BA89100926D87 /* Build configuration list for PBXProject "Vinance" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E2C68A432B1BA89100926D87;
+			productRefGroup = E2C68A4D2B1BA89100926D87 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E2C68A4B2B1BA89100926D87 /* Vinance */,
+				E2C68A5B2B1BA89200926D87 /* VinanceTests */,
+				E2C68A652B1BA89200926D87 /* VinanceUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E2C68A4A2B1BA89100926D87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2C68A572B1BA89200926D87 /* Preview Assets.xcassets in Resources */,
+				E2C68A542B1BA89200926D87 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2C68A5A2B1BA89200926D87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2C68A642B1BA89200926D87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E2C68A482B1BA89100926D87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E24AEAC32B1CDCCA002EC92A /* LoginView.swift in Sources */,
+				E286D1F42D9CC80E00CE5281 /* AuthModels.swift in Sources */,
+				E24AEAC52B1CDE39002EC92A /* InputView.swift in Sources */,
+				E2CA964F2B1E200400F6FA2F /* LoginResponse.swift in Sources */,
+				E2C68A522B1BA89100926D87 /* ContentView.swift in Sources */,
+				E2175CB92DABC92100884140 /* BudgetSummaryView.swift in Sources */,
+				E2175CC72DABCB7E00884140 /* UpcomingExpense.swift in Sources */,
+				E286D1F02D9CC74B00CE5281 /* NetworkService.swift in Sources */,
+				E2CA96492B1E1F8A00F6FA2F /* LoginRequest.swift in Sources */,
+				E2C68A502B1BA89100926D87 /* VinanceApp.swift in Sources */,
+				E2175CBF2DABCA7300884140 /* UpcomingExpenseView.swift in Sources */,
+				E2175CAC2DABBE9D00884140 /* NetWorthChart.swift in Sources */,
+				E286D1F92D9CCD9700CE5281 /* DashboardView.swift in Sources */,
+				E286D2022D9CCEE300CE5281 /* MoreView.swift in Sources */,
+				E2175CCA2DABCBE700884140 /* Color+Extension.swift in Sources */,
+				E2175CBD2DABCA2800884140 /* BudgetCategoryView.swift in Sources */,
+				E293932D2B54172E0002EA80 /* RegisterRequest.swift in Sources */,
+				E295C3122DA27FE4005F3C2E /* UserResponse.swift in Sources */,
+				E2175CC12DABCAC400884140 /* LineShape.swift in Sources */,
+				E286D1FF2D9CCEB800CE5281 /* StatisticsView.swift in Sources */,
+				E2175CCE2DABCCBE00884140 /* TransactionItemView.swift in Sources */,
+				E295C3102D9CD46E005F3C2E /* NavigationView.swift in Sources */,
+				E286D1FC2D9CCE5D00CE5281 /* PlanningView.swift in Sources */,
+				E2CA96412B1DD34A00F6FA2F /* User.swift in Sources */,
+				E2175CB52DABC5FA00884140 /* MainHeader.swift in Sources */,
+				E2CA963D2B1DCFE500F6FA2F /* ProfileView.swift in Sources */,
+				E286D1EE2D9CC72600CE5281 /* APIConfig.swift in Sources */,
+				E286D2052D9CCF2700CE5281 /* AddNewView.swift in Sources */,
+				E2175CC32DABCAEC00884140 /* ChartPoint.swift in Sources */,
+				E2CA964C2B1E1FCD00F6FA2F /* CustomError.swift in Sources */,
+				E24AEAC72B1CE17F002EC92A /* RegistrationView.swift in Sources */,
+				E2175CCC2DABCC7100884140 /* Transaction.swift in Sources */,
+				E293932F2B5417D60002EA80 /* RegisterResponse.swift in Sources */,
+				E2175CB12DABC18500884140 /* TimePeriod.swift in Sources */,
+				E2175CC52DABCB6600884140 /* BudgetCategory.swift in Sources */,
+				E2175CB32DABC41B00884140 /* SpendingChart.swift in Sources */,
+				E2175CBB2DABC9A600884140 /* LineChartView.swift in Sources */,
+				E2CA963F2B1DD18C00F6FA2F /* SettingsRowView.swift in Sources */,
+				E2CA96462B1DD78700F6FA2F /* AuthViewModel.swift in Sources */,
+				FA000001DABBE9D008840001 /* HomeView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2C68A582B1BA89200926D87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2C68A612B1BA89200926D87 /* VinanceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2C68A622B1BA89200926D87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2C68A6B2B1BA89200926D87 /* VinanceUITests.swift in Sources */,
+				E2C68A6D2B1BA89200926D87 /* VinanceUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E2C68A5E2B1BA89200926D87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E2C68A4B2B1BA89100926D87 /* Vinance */;
+			targetProxy = E2C68A5D2B1BA89200926D87 /* PBXContainerItemProxy */;
+		};
+		E2C68A682B1BA89200926D87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E2C68A4B2B1BA89100926D87 /* Vinance */;
+			targetProxy = E2C68A672B1BA89200926D87 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E2C68A6E2B1BA89200926D87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E2C68A6F2B1BA89200926D87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E2C68A712B1BA89200926D87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"vinance/Preview Content\"";
+				DEVELOPMENT_TEAM = DHPH37679P;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vincentkdeli.vinance;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E2C68A722B1BA89200926D87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"vinance/Preview Content\"";
+				DEVELOPMENT_TEAM = DHPH37679P;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vincentkdeli.vinance;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E2C68A742B1BA89200926D87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DHPH37679P;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vincentkdeli.vinanceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vinance.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Vinance";
+			};
+			name = Debug;
+		};
+		E2C68A752B1BA89200926D87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DHPH37679P;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vincentkdeli.vinanceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vinance.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Vinance";
+			};
+			name = Release;
+		};
+		E2C68A772B1BA89200926D87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DHPH37679P;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vincentkdeli.vinanceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = vinance;
+			};
+			name = Debug;
+		};
+		E2C68A782B1BA89200926D87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DHPH37679P;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vincentkdeli.vinanceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = vinance;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E2C68A472B1BA89100926D87 /* Build configuration list for PBXProject "Vinance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2C68A6E2B1BA89200926D87 /* Debug */,
+				E2C68A6F2B1BA89200926D87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2C68A702B1BA89200926D87 /* Build configuration list for PBXNativeTarget "Vinance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2C68A712B1BA89200926D87 /* Debug */,
+				E2C68A722B1BA89200926D87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2C68A732B1BA89200926D87 /* Build configuration list for PBXNativeTarget "VinanceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2C68A742B1BA89200926D87 /* Debug */,
+				E2C68A752B1BA89200926D87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2C68A762B1BA89200926D87 /* Build configuration list for PBXNativeTarget "VinanceUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2C68A772B1BA89200926D87 /* Debug */,
+				E2C68A782B1BA89200926D87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E2C68A442B1BA89100926D87 /* Project object */;
+}
