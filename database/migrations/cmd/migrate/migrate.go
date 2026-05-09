@@ -63,7 +63,7 @@ func Migrate() {
 	}
 
 	// Get all migration files
-	migrations, err := getMigrationFiles("migrations")
+	migrations, err := getMigrationFiles("scripts")
 	if err != nil {
 		log.Fatal("Error reading migration files:", err)
 	}

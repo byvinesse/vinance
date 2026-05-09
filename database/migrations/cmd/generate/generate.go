@@ -33,9 +33,9 @@ func Generate() {
 	timestamp := time.Now().Format("20060102150405")
 
 	// Create migrations directory if it doesn't exist
-	migrationsDir := "migrations"
+	migrationsDir := "scripts"
 	if err := os.MkdirAll(migrationsDir, 0755); err != nil {
-		fmt.Printf("Error creating migrations directory: %v\n", err)
+		fmt.Printf("Error creating migration scripts directory: %v\n", err)
 		os.Exit(1)
 	}
 
@@ -74,11 +74,11 @@ COMMIT;
 	downFilePath := filepath.Join(migrationsDir, downFileName)
 
 	if err := createMigrationFile(downFilePath, downTemplate, migrationName); err != nil {
-		fmt.Printf("Error creating down migration file: %v\n", err)
+		fmt.Printf("Error creating down migration script file: %v\n", err)
 		os.Exit(1)
 	}
 
-	fmt.Println("Successfully created migration files:")
+	fmt.Println("Successfully created migration script files:")
 	fmt.Printf("Up migration: %s\n", upFilePath)
 	fmt.Printf("Down migration: %s\n", downFilePath)
 }
