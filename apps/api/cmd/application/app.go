@@ -15,6 +15,7 @@ type App struct {
 	UserService     service.IUserService
 	AccountService  service.IAccountService
 	CategoryService service.ICategoryService
+	RecordService   service.IRecordService
 
 	Authenticator *auth.Authenticator
 }
@@ -30,11 +31,14 @@ func NewApp() *App {
 	userRepo := db.NewUser(database)
 	accountRepo := db.NewAccount(database)
 	categoryRepo := db.NewCategory(database)
+	recordRepo := db.NewRecord(database)
+	recordLabelRepo := db.NewRecordLabel(database)
 
 	// Init service
 	userService := service.NewUserService(userRepo, *authenticator)
 	accountService := service.NewAccountService(accountRepo)
 	categoryService := service.NewCategoryService(categoryRepo)
+	recordService := service.NewRecordService(recordRepo, recordLabelRepo)
 
 	validator.Init()
 
@@ -42,6 +46,7 @@ func NewApp() *App {
 		UserService:     userService,
 		AccountService:  accountService,
 		CategoryService: categoryService,
+		RecordService:   recordService,
 
 		Authenticator: authenticator,
 	}

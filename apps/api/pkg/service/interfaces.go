@@ -19,3 +19,8 @@ type IAccountService interface {
 type ICategoryService interface {
 	GetCompleteCategory(ctx context.Context, userID string) ([]model.GetCompleteCategoriesResponse, error)
 }
+
+type IRecordService interface {
+	CreateRecord(ctx context.Context, userID string, request *model.CreateRecordRequest) (*model.RecordResponse, error)
+	GetRecords(ctx context.Context, userID string, limit int, cursor string) (*model.PaginatedRecordsResponse, error)
+}

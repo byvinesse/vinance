@@ -18,3 +18,13 @@ type Account interface {
 type Category interface {
 	FindCompleteCategory(ctx context.Context, userID string) ([]entity.CategoryWithSubCategory, error)
 }
+
+type Record interface {
+	InsertOne(ctx context.Context, record *entity.Record) (*entity.Record, error)
+	FindByUserID(ctx context.Context, userID string, limit int, cursor *entity.RecordCursor) ([]entity.Record, error)
+}
+
+type RecordLabel interface {
+	InsertBatch(ctx context.Context, recordID string, labelIDs []string) error
+	FindByRecordIDs(ctx context.Context, recordIDs []string) ([]entity.RecordLabel, error)
+}
