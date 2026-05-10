@@ -2,6 +2,8 @@
 //  HomeView.swift
 //  Vinance
 //
+//  Created by Vincent Deli on 03/05/26.
+//
 //  Reference design: design/mock/mock-v1.html (VNC-38)
 //
 //  Restructured home screen built on the Vinance Mobile App Design system.
