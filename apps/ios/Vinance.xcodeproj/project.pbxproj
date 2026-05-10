@@ -42,6 +42,7 @@
 		E2C68A542B1BA89200926D87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C68A532B1BA89200926D87 /* Assets.xcassets */; };
 		E2C68A572B1BA89200926D87 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C68A562B1BA89200926D87 /* Preview Assets.xcassets */; };
 		E2C68A612B1BA89200926D87 /* VinanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A602B1BA89200926D87 /* VinanceTests.swift */; };
+		FA000010DABBE9D008840010 /* HomeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA000011DABBE9D008840011 /* HomeViewTests.swift */; };
 		E2C68A6B2B1BA89200926D87 /* VinanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A6A2B1BA89200926D87 /* VinanceUITests.swift */; };
 		E2C68A6D2B1BA89200926D87 /* VinanceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68A6C2B1BA89200926D87 /* VinanceUITestsLaunchTests.swift */; };
 		E2CA963D2B1DCFE500F6FA2F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA963C2B1DCFE500F6FA2F /* ProfileView.swift */; };
@@ -109,6 +110,7 @@
 		E2C68A562B1BA89200926D87 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E2C68A5C2B1BA89200926D87 /* VinanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VinanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C68A602B1BA89200926D87 /* VinanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VinanceTests.swift; sourceTree = "<group>"; };
+		FA000011DABBE9D008840011 /* HomeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewTests.swift; sourceTree = "<group>"; };
 		E2C68A662B1BA89200926D87 /* VinanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VinanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C68A6A2B1BA89200926D87 /* VinanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VinanceUITests.swift; sourceTree = "<group>"; };
 		E2C68A6C2B1BA89200926D87 /* VinanceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VinanceUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				E2C68A602B1BA89200926D87 /* VinanceTests.swift */,
+				FA000011DABBE9D008840011 /* HomeViewTests.swift */,
 			);
 			path = VinanceTests;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2C68A612B1BA89200926D87 /* VinanceTests.swift in Sources */,
+				FA000010DABBE9D008840010 /* HomeViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
